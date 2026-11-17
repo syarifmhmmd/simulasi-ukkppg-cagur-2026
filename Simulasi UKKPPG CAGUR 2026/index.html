@@ -1,0 +1,2788 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TRYOUT UKPPPG CALON GURU 2026</title>
+  <style>
+    :root {
+      --navy: #0b2545;
+      --navy2: #13315c;
+      --blue: #1d4e89;
+      --blue2: #2f6fb3;
+      --sky: #8ecae6;
+      --sky2: #e8f3fb;
+      --white: #ffffff;
+      --gray: #f2f5f9;
+      --gray2: #dde5ee;
+      --text: #17263b;
+      --muted: #5f7186;
+      --green: #1f8a4c;
+      --greenbg: #e2f5ea;
+      --red: #c0392b;
+      --redbg: #fdecea;
+      --amber: #b8860b;
+      --amberbg: #fdf3d7;
+      --shadow: 0 6px 24px rgba(11, 37, 69, .10);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, Arial, sans-serif;
+      background: linear-gradient(160deg, #eaf2fa 0%, #f7fafd 40%, #eef4fb 100%);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+
+    .hidden {
+      display: none !important
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      outline: none
+    }
+
+    input,
+    select {
+      font-family: inherit
+    }
+
+    header.appbar {
+      background: linear-gradient(90deg, var(--navy) 0%, var(--navy2) 60%, var(--blue) 100%);
+      color: #fff;
+      padding: 14px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+      box-shadow: 0 3px 14px rgba(11, 37, 69, .35);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .brand .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--sky);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--navy);
+      font-size: 18px;
+      letter-spacing: .5px;
+      flex: 0 0 auto;
+    }
+
+    .brand h1 {
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      line-height: 1.25
+    }
+
+    .brand small {
+      display: block;
+      font-size: 11px;
+      font-weight: 400;
+      color: #cfe2f5;
+      letter-spacing: .3px
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .pill {
+      background: rgba(255, 255, 255, .13);
+      border: 1px solid rgba(255, 255, 255, .25);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--sky)
+    }
+
+    .timer-pill {
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-variant-numeric: tabular-nums
+    }
+
+    .timer-pill.warn {
+      background: rgba(253, 211, 77, .22);
+      border-color: #fdf3d7;
+      color: #ffe9a8
+    }
+
+    .timer-pill.danger {
+      background: rgba(192, 57, 43, .35);
+      border-color: #e88;
+      color: #ffd7d2;
+      animation: pulse 1s infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .65
+      }
+    }
+
+    .btn {
+      border-radius: 10px;
+      padding: 10px 18px;
+      font-size: 13.5px;
+      font-weight: 700;
+      transition: transform .12s ease, box-shadow .12s ease, background .15s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(.99)
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--blue2) 100%);
+      color: #fff;
+      box-shadow: 0 5px 16px rgba(29, 78, 137, .35)
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 7px 22px rgba(29, 78, 137, .45)
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, .45)
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, .12)
+    }
+
+    .btn-outline {
+      background: #fff;
+      color: var(--blue);
+      border: 1.5px solid var(--blue2)
+    }
+
+    .btn-outline:hover {
+      background: var(--sky2)
+    }
+
+    .btn-green {
+      background: linear-gradient(135deg, #177245, #28a862);
+      color: #fff;
+      box-shadow: 0 5px 16px rgba(31, 138, 76, .35)
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, #a93226, #d1453a);
+      color: #fff;
+      box-shadow: 0 5px 16px rgba(192, 57, 43, .3)
+    }
+
+    .btn-sm {
+      padding: 7px 13px;
+      font-size: 12px;
+      border-radius: 9px
+    }
+
+    .btn:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none
+    }
+
+    .wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 24px 18px 60px
+    }
+
+    .card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      border: 1px solid #e7eef6;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 6px
+    }
+
+    .section-sub {
+      font-size: 13.5px;
+      color: var(--muted);
+      margin-bottom: 20px
+    }
+
+    .hero {
+      text-align: center;
+      padding: 36px 28px 30px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy2) 55%, var(--blue) 100%);
+      color: #fff;
+      box-shadow: 0 14px 40px rgba(11, 37, 69, .35);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 22px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      top: -80px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: rgba(142, 202, 230, .13);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -60px;
+      bottom: -100px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: rgba(142, 202, 230, .09);
+    }
+
+    .hero .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .3);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      color: #dcecf9;
+    }
+
+    .hero h2 {
+      font-size: clamp(22px, 3.5vw, 34px);
+      font-weight: 800;
+      letter-spacing: .4px;
+      line-height: 1.2;
+      position: relative
+    }
+
+    .hero p.sub {
+      font-size: clamp(13px, 1.7vw, 16px);
+      color: #c9def2;
+      margin-top: 10px;
+      position: relative;
+      font-weight: 500
+    }
+
+    .hero .meta-row {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 24px;
+      position: relative;
+    }
+
+    .hero .meta-chip {
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid rgba(255, 255, 255, .22);
+      padding: 9px 16px;
+      border-radius: 11px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: #e6f1fb;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hero .meta-chip b {
+      color: #fff
+    }
+
+    .note {
+      background: var(--amberbg);
+      border: 1px solid #ecd9a0;
+      color: #7a5a00;
+      padding: 12px 16px;
+      border-radius: 11px;
+      font-size: 12.5px;
+      margin-top: 22px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.55;
+    }
+
+    .note .ic {
+      font-size: 16px;
+      line-height: 1
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px
+    }
+
+    .field label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 7px
+    }
+
+    .field input,
+    .field select {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: 10px;
+      border: 1.5px solid var(--gray2);
+      font-size: 14px;
+      background: #fbfdff;
+      transition: border .15s, box-shadow .15s;
+      color: var(--text);
+    }
+
+    .field input:focus,
+    .field select:focus {
+      border-color: var(--blue2);
+      box-shadow: 0 0 0 3px rgba(47, 111, 179, .15);
+      background: #fff
+    }
+
+    .field .hint {
+      font-size: 11.5px;
+      color: var(--muted);
+      margin-top: 6px
+    }
+
+    .start-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap
+    }
+
+    .err-msg {
+      color: var(--red);
+      font-size: 12.5px;
+      font-weight: 600;
+      margin-top: 10px;
+      min-height: 16px
+    }
+
+    .exam-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 20px;
+      align-items: start
+    }
+
+    .q-card {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid #e7eef6;
+      overflow: hidden
+    }
+
+    .q-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--gray2);
+      background: linear-gradient(90deg, #f6fafe, #eef5fc);
+    }
+
+    .q-badge {
+      background: var(--navy);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      padding: 6px 13px;
+      border-radius: 8px;
+    }
+
+    .q-cat {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--sky2);
+      padding: 5px 11px;
+      border-radius: 999px;
+      border: 1px solid #cfe4f6;
+      letter-spacing: .3px;
+    }
+
+    .q-body {
+      padding: 26px 28px
+    }
+
+    .q-text {
+      font-size: 15.5px;
+      line-height: 1.65;
+      color: var(--text);
+      font-weight: 500;
+      white-space: pre-line
+    }
+
+    .instruction {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--amber);
+      background: var(--amberbg);
+      border: 1px solid #ecd9a0;
+      padding: 5px 12px;
+      border-radius: 8px;
+      letter-spacing: .3px;
+    }
+
+    .options {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px
+    }
+
+    .opt {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border-radius: 11px;
+      border: 1.5px solid var(--gray2);
+      background: #fbfdff;
+      cursor: pointer;
+      transition: border .14s, background .14s, box-shadow .14s;
+    }
+
+    .opt:hover {
+      border-color: var(--sky);
+      background: #f4faff
+    }
+
+    .opt.selected {
+      border-color: var(--blue2);
+      background: var(--sky2);
+      box-shadow: 0 0 0 2px rgba(47, 111, 179, .18)
+    }
+
+    .opt .marker {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--gray2);
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--muted);
+      background: #fff;
+      transition: all .14s;
+    }
+
+    .opt.selected .marker {
+      background: var(--blue2);
+      border-color: var(--blue2);
+      color: #fff
+    }
+
+    .opt .marker.sq {
+      border-radius: 7px
+    }
+
+    .opt .opt-txt {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--text);
+      padding-top: 1px
+    }
+
+    .bs-row {
+      display: flex;
+      gap: 11px;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 16px;
+      border: 1.5px solid var(--gray2);
+      border-radius: 11px;
+      background: #fbfdff;
+      flex-wrap: wrap
+    }
+
+    .bs-row .stmt {
+      font-size: 14px;
+      flex: 1;
+      min-width: 200px;
+      line-height: 1.5
+    }
+
+    .bs-btns {
+      display: flex;
+      gap: 8px
+    }
+
+    .bs-btn {
+      padding: 8px 18px;
+      border-radius: 9px;
+      border: 1.5px solid var(--gray2);
+      background: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+      transition: all .14s
+    }
+
+    .bs-btn.on-true {
+      background: var(--greenbg);
+      border-color: var(--green);
+      color: var(--green)
+    }
+
+    .bs-btn.on-false {
+      background: var(--redbg);
+      border-color: var(--red);
+      color: var(--red)
+    }
+
+    .bs-btn:hover {
+      border-color: var(--sky)
+    }
+
+    .q-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 16px 24px;
+      border-top: 1px solid var(--gray2);
+      background: #f9fbfe;
+    }
+
+    .q-footer .left,
+    .q-footer .right {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .flag-btn {
+      border: 1.5px solid var(--amber);
+      background: #fff;
+      color: var(--amber);
+      font-weight: 700;
+      font-size: 12.5px;
+      padding: 9px 15px;
+      border-radius: 9px;
+      display: inline-flex;
+      gap: 7px;
+      align-items: center;
+      transition: all .14s;
+    }
+
+    .flag-btn.active {
+      background: var(--amberbg);
+      box-shadow: 0 0 0 2px rgba(184, 134, 11, .18)
+    }
+
+    .flag-btn:hover {
+      background: var(--amberbg)
+    }
+
+    .exam-progress {
+      padding: 0 0 6px
+    }
+
+    .bar {
+      height: 9px;
+      background: var(--gray2);
+      border-radius: 999px;
+      overflow: hidden
+    }
+
+    .bar>i {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, var(--blue2), var(--sky));
+      border-radius: 999px;
+      transition: width .3s ease
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--muted);
+      font-weight: 600;
+      margin-bottom: 6px
+    }
+
+    .side {
+      background: #fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid #e7eef6;
+      padding: 18px;
+      position: sticky;
+      top: 88px;
+    }
+
+    .side h3 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 7px;
+      max-height: 340px;
+      overflow-y: auto;
+      padding-right: 4px
+    }
+
+    .nav-grid::-webkit-scrollbar {
+      width: 6px
+    }
+
+    .nav-grid::-webkit-scrollbar-thumb {
+      background: var(--gray2);
+      border-radius: 99px
+    }
+
+    .nav-num {
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 1.5px solid var(--gray2);
+      background: #fbfdff;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .12s;
+      position: relative;
+    }
+
+    .nav-num:hover {
+      transform: translateY(-1px);
+      border-color: var(--sky)
+    }
+
+    .nav-num.answered {
+      background: var(--greenbg);
+      border-color: var(--green);
+      color: var(--green)
+    }
+
+    .nav-num.flagged {
+      background: var(--amberbg);
+      border-color: var(--amber);
+      color: var(--amber)
+    }
+
+    .nav-num.answered.flagged {
+      background: linear-gradient(135deg, var(--greenbg) 50%, var(--amberbg) 50%)
+    }
+
+    .nav-num.current {
+      box-shadow: 0 0 0 3px rgba(47, 111, 179, .4);
+      border-color: var(--blue2);
+      background: var(--blue2);
+      color: #fff
+    }
+
+    .nav-num.flagged::after {
+      content: "";
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--amber);
+    }
+
+    .legend {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-top: 16px;
+      font-size: 11.5px;
+      color: var(--muted);
+      font-weight: 600
+    }
+
+    .legend .li {
+      display: flex;
+      align-items: center;
+      gap: 8px
+    }
+
+    .legend .sw {
+      width: 14px;
+      height: 14px;
+      border-radius: 5px;
+      border: 1.5px solid var(--gray2);
+      background: #fbfdff;
+      flex: 0 0 auto
+    }
+
+    .legend .sw.answered {
+      background: var(--greenbg);
+      border-color: var(--green)
+    }
+
+    .legend .sw.flagged {
+      background: var(--amberbg);
+      border-color: var(--amber)
+    }
+
+    .legend .sw.current {
+      background: var(--blue2);
+      border-color: var(--blue2)
+    }
+
+    .side-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: 18px
+    }
+
+    .side-actions .btn {
+      width: 100%
+    }
+
+    .result-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 30px 32px;
+      box-shadow: 0 14px 40px rgba(11, 37, 69, .32);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 22px;
+    }
+
+    .result-hero h2 {
+      font-size: clamp(19px, 2.6vw, 26px);
+      font-weight: 800;
+      letter-spacing: .3px
+    }
+
+    .result-hero .identity {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-top: 10px;
+      font-size: 13px;
+      color: #cfe2f5
+    }
+
+    .result-hero .identity b {
+      color: #fff
+    }
+
+    .score-circle {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      box-shadow: inset 0 0 0 6px rgba(255, 255, 255, .18);
+    }
+
+    .score-circle .inner {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .score-circle .val {
+      font-size: 34px;
+      font-weight: 800;
+      line-height: 1;
+      color: #fff
+    }
+
+    .score-circle .lbl {
+      font-size: 10.5px;
+      letter-spacing: 1px;
+      color: #bcd6ec;
+      margin-top: 4px;
+      font-weight: 700
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 22px
+    }
+
+    .stat {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e7eef6;
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat .k {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: .6px;
+      text-transform: uppercase
+    }
+
+    .stat .v {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--navy)
+    }
+
+    .stat.green .v {
+      color: var(--green)
+    }
+
+    .stat.red .v {
+      color: var(--red)
+    }
+
+    .stat.gray .v {
+      color: var(--muted)
+    }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 8px
+    }
+
+    .cat-item {
+      background: #fbfdff;
+      border: 1px solid var(--gray2);
+      border-radius: 12px;
+      padding: 15px 17px
+    }
+
+    .cat-item .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px
+    }
+
+    .cat-item .name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy)
+    }
+
+    .cat-item .score {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--blue)
+    }
+
+    .cat-item .score small {
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 11px
+    }
+
+    .cat-item .bar {
+      height: 8px
+    }
+
+    .cat-item .bar>i {
+      background: linear-gradient(90deg, var(--blue2), var(--sky))
+    }
+
+    .cat-item.low .bar>i {
+      background: linear-gradient(90deg, #d1453a, #e8836b)
+    }
+
+    .cat-item.low .score {
+      color: var(--red)
+    }
+
+    .verdict {
+      margin-top: 22px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      border: 1.5px solid;
+      flex-wrap: wrap;
+    }
+
+    .verdict .big {
+      font-size: 34px;
+      line-height: 1
+    }
+
+    .verdict .txt h4 {
+      font-size: 15.5px;
+      font-weight: 800;
+      margin-bottom: 4px
+    }
+
+    .verdict .txt p {
+      font-size: 13px;
+      line-height: 1.6
+    }
+
+    .verdict.great {
+      background: var(--greenbg);
+      border-color: #a8e0c1;
+      color: #135c33
+    }
+
+    .verdict.good {
+      background: var(--sky2);
+      border-color: #b6d7f0;
+      color: #144a78
+    }
+
+    .verdict.mid {
+      background: var(--amberbg);
+      border-color: #e6d28e;
+      color: #6e5200
+    }
+
+    .verdict.low {
+      background: var(--redbg);
+      border-color: #f0b7b0;
+      color: #8a2018
+    }
+
+    .recommend {
+      margin-top: 16px;
+      background: #f4f8fd;
+      border: 1px dashed var(--blue2);
+      border-radius: 12px;
+      padding: 16px 18px;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: #26466b;
+    }
+
+    .result-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 24px
+    }
+
+    .review-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 16px
+    }
+
+    .review-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 18px
+    }
+
+    .rtab {
+      padding: 8px 14px;
+      border-radius: 9px;
+      border: 1.5px solid var(--gray2);
+      background: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      transition: all .13s;
+    }
+
+    .rtab.active {
+      background: var(--navy);
+      border-color: var(--navy);
+      color: #fff
+    }
+
+    .rtab:hover {
+      border-color: var(--sky)
+    }
+
+    .review-item {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #e7eef6;
+      box-shadow: 0 2px 10px rgba(11, 37, 69, .05);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+    }
+
+    .review-item.correct {
+      border-left: 5px solid var(--green)
+    }
+
+    .review-item.wrong {
+      border-left: 5px solid var(--red)
+    }
+
+    .review-item.empty {
+      border-left: 5px solid var(--muted)
+    }
+
+    .review-item .rhead {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 9px
+    }
+
+    .review-item .rnum {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      background: var(--gray);
+      padding: 4px 10px;
+      border-radius: 7px
+    }
+
+    .review-item .rtag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px
+    }
+
+    .rtag.ok {
+      background: var(--greenbg);
+      color: var(--green)
+    }
+
+    .rtag.no {
+      background: var(--redbg);
+      color: var(--red)
+    }
+
+    .rtag.none {
+      background: var(--gray);
+      color: var(--muted)
+    }
+
+    .review-item .rq {
+      font-size: 14px;
+      line-height: 1.6;
+      margin: 8px 0;
+      white-space: pre-line;
+      color: var(--text)
+    }
+
+    .review-item .rans {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 12px 0 8px
+    }
+
+    .rans .box {
+      padding: 10px 13px;
+      border-radius: 9px;
+      font-size: 12.5px;
+      line-height: 1.5
+    }
+
+    .rans .box .lbl {
+      display: block;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+      opacity: .8
+    }
+
+    .rans .box.you {
+      background: #f4f8fd;
+      border: 1px solid #cfe0f0;
+      color: #1c3c5e
+    }
+
+    .rans .box.key {
+      background: var(--greenbg);
+      border: 1px solid #b3e3c6;
+      color: #135c33
+    }
+
+    .rans .box.you.wrong {
+      background: var(--redbg);
+      border: 1px solid #f0c0b9;
+      color: #8a2018
+    }
+
+    .review-item .expl {
+      background: #f9fbfe;
+      border: 1px dashed var(--gray2);
+      border-radius: 9px;
+      padding: 12px 15px;
+      font-size: 12.5px;
+      line-height: 1.65;
+      color: #33475e;
+    }
+
+    .review-item .expl b {
+      color: var(--navy)
+    }
+
+    .no-data {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .admin-hero {
+      background: linear-gradient(135deg, #1a1f2e 0%, #2b3547 100%);
+      color: #fff;
+      border-radius: 16px;
+      padding: 26px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      box-shadow: 0 12px 34px rgba(0, 0, 0, .3);
+      margin-bottom: 20px;
+    }
+
+    .admin-hero h2 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: .4px
+    }
+
+    .admin-hero p {
+      font-size: 12.5px;
+      color: #b9c4d3;
+      margin-top: 4px
+    }
+
+    .admin-toolbar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 16px
+    }
+
+    .admin-toolbar input {
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1.5px solid var(--gray2);
+      font-size: 13px;
+      min-width: 220px;
+      background: #fff;
+    }
+
+    .admin-toolbar input:focus {
+      border-color: var(--blue2);
+      box-shadow: 0 0 0 3px rgba(47, 111, 179, .15)
+    }
+
+    .admin-table-wrap {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e7eef6;
+      overflow: hidden
+    }
+
+    table.admin {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12.5px
+    }
+
+    table.admin thead th {
+      background: #f3f7fc;
+      color: var(--navy);
+      font-weight: 800;
+      text-align: left;
+      padding: 11px 13px;
+      font-size: 11px;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      border-bottom: 2px solid var(--gray2);
+      white-space: nowrap;
+    }
+
+    table.admin tbody td {
+      padding: 11px 13px;
+      border-bottom: 1px solid #eef3f9;
+      vertical-align: middle
+    }
+
+    table.admin tbody tr:hover {
+      background: #f8fbff
+    }
+
+    table.admin tbody tr:last-child td {
+      border-bottom: none
+    }
+
+    .tag-field {
+      padding: 3px 9px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 800;
+      letter-spacing: .3px
+    }
+
+    .tag-field.inf {
+      background: #e3ecfb;
+      color: #1d4e89
+    }
+
+    .tag-field.ipa {
+      background: #e2f5ea;
+      color: #1f8a4c
+    }
+
+    .mini-score {
+      font-weight: 800;
+      font-size: 14px
+    }
+
+    .mini-score.ok {
+      color: var(--green)
+    }
+
+    .mini-score.mid {
+      color: var(--amber)
+    }
+
+    .mini-score.bad {
+      color: var(--red)
+    }
+
+    .admin-actions {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap
+    }
+
+    .btn-xs {
+      padding: 5px 10px;
+      font-size: 11px;
+      border-radius: 7px;
+      font-weight: 700
+    }
+
+    .admin-empty {
+      text-align: center;
+      padding: 50px 20px;
+      color: var(--muted);
+      font-size: 13.5px
+    }
+
+    .admin-empty .ic {
+      font-size: 42px;
+      display: block;
+      margin-bottom: 10px;
+      opacity: .5
+    }
+
+    .modal-back {
+      position: fixed;
+      inset: 0;
+      background: rgba(11, 25, 45, .55);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 200;
+    }
+
+    .modal {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, .4);
+      max-width: 640px;
+      width: 100%;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: pop .18s ease;
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(.94);
+        opacity: 0
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1
+      }
+    }
+
+    .modal-head {
+      padding: 18px 22px;
+      border-bottom: 1px solid var(--gray2);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px
+    }
+
+    .modal-head h3 {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy)
+    }
+
+    .modal-body {
+      padding: 20px 22px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text)
+    }
+
+    .modal-body .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 16px
+    }
+
+    .modal-body .dbox {
+      background: #f7fafd;
+      border: 1px solid var(--gray2);
+      border-radius: 9px;
+      padding: 10px 13px
+    }
+
+    .modal-body .dbox .k {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px
+    }
+
+    .modal-body .dbox .v {
+      font-size: 14px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-top: 2px
+    }
+
+    .modal-body h4 {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      margin: 16px 0 8px;
+      text-transform: uppercase;
+      letter-spacing: .5px
+    }
+
+    .modal-foot {
+      padding: 14px 22px;
+      border-top: 1px solid var(--gray2);
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+      background: #f9fbfe
+    }
+
+    .mini-review {
+      border: 1px solid var(--gray2);
+      border-radius: 9px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      line-height: 1.55
+    }
+
+    .mini-review.correct {
+      border-left: 4px solid var(--green);
+      background: #fbfefc
+    }
+
+    .mini-review.wrong {
+      border-left: 4px solid var(--red);
+      background: #fefbfb
+    }
+
+    .mini-review.empty {
+      border-left: 4px solid var(--muted);
+      background: #fafbfc
+    }
+
+    .mini-review .mr-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-weight: 700;
+      color: var(--navy)
+    }
+
+    .mini-review .mr-ans {
+      color: var(--muted);
+      margin-top: 3px
+    }
+
+    .mini-review .mr-key {
+      color: var(--green);
+      font-weight: 600;
+      margin-top: 2px
+    }
+
+    .mini-review .mr-exp {
+      color: #4a5c72;
+      margin-top: 4px;
+      font-size: 11.5px;
+      padding-top: 5px;
+      border-top: 1px dashed #dbe4ee
+    }
+
+    .modal-body .filter-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px
+    }
+
+    .modal-body .filter-row button {
+      padding: 5px 11px;
+      font-size: 11px;
+      border-radius: 7px;
+      border: 1.5px solid var(--gray2);
+      background: #fff;
+      font-weight: 700;
+      color: var(--muted)
+    }
+
+    .modal-body .filter-row button.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy)
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--navy);
+      color: #fff;
+      padding: 12px 22px;
+      border-radius: 11px;
+      font-size: 13px;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+      z-index: 300;
+      transition: transform .3s ease;
+      max-width: 90vw;
+      text-align: center;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0)
+    }
+
+    .toast.err {
+      background: var(--red)
+    }
+
+    @media(max-width:900px) {
+      .exam-layout {
+        grid-template-columns: 1fr
+      }
+
+      .side {
+        position: static;
+        order: -1
+      }
+
+      .nav-grid {
+        max-height: 150px
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr
+      }
+
+      .stat-grid {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .cat-grid {
+        grid-template-columns: 1fr
+      }
+
+      .rans {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media(max-width:640px) {
+      header.appbar {
+        padding: 10px 14px
+      }
+
+      .brand h1 {
+        font-size: 12.5px
+      }
+
+      .brand small {
+        font-size: 9.5px
+      }
+
+      .brand .logo {
+        width: 34px;
+        height: 34px;
+        font-size: 15px
+      }
+
+      .header-right {
+        gap: 6px
+      }
+
+      .pill {
+        font-size: 10.5px;
+        padding: 6px 10px
+      }
+
+      .timer-pill {
+        font-size: 13px
+      }
+
+      .wrap {
+        padding: 14px 12px 50px
+      }
+
+      .card {
+        padding: 18px
+      }
+
+      .hero {
+        padding: 26px 18px 22px
+      }
+
+      .q-body {
+        padding: 18px 16px
+      }
+
+      .q-top,
+      .q-footer {
+        padding: 12px 16px
+      }
+
+      .result-hero {
+        padding: 22px 18px
+      }
+
+      .score-circle {
+        width: 110px;
+        height: 110px
+      }
+
+      .score-circle .inner {
+        width: 88px;
+        height: 88px
+      }
+
+      .score-circle .val {
+        font-size: 28px
+      }
+
+      .stat .v {
+        font-size: 20px
+      }
+
+      .review-item {
+        padding: 14px
+      }
+
+      .modal-body .detail-grid {
+        grid-template-columns: 1fr
+      }
+
+      .admin-toolbar input {
+        min-width: 0;
+        width: 100%
+      }
+
+      table.admin {
+        font-size: 11.5px
+      }
+
+      table.admin thead th,
+      table.admin tbody td {
+        padding: 8px 9px
+      }
+    }
+
+    /* Ikon admin tersembunyi */
+    #adminSecret {
+      position: fixed;
+      bottom: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(11, 37, 69, .08);
+      border: 1px solid rgba(11, 37, 69, .12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      color: rgba(11, 37, 69, .35);
+      cursor: pointer;
+      opacity: .35;
+      transition: opacity .2s, background .2s, transform .2s;
+      z-index: 90;
+      user-select: none;
+    }
+
+    #adminSecret:hover {
+      opacity: 1;
+      background: rgba(11, 37, 69, .15);
+      transform: scale(1.08)
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="appbar" id="appbar">
+    <div class="brand">
+      <div class="logo">PG</div>
+      <div>
+        <h1>TRYOUT UKPPPG CALON GURU 2026</h1>
+        <small>Simulasi Ujian Tertulis &bull; Informatika &amp; IPA</small>
+      </div>
+    </div>
+    <div class="header-right" id="headerRight"></div>
+  </header>
+
+  <div class="wrap" id="app"></div>
+  <div class="toast" id="toast"></div>
+  <div id="adminSecret" title="Admin">⚙️</div>
+  <script>
+    /* =========================================================
+       KONFIGURASI & STATE
+       ========================================================= */
+    var EXAM_DURATION_SEC = 120 * 60;
+    var TOTAL_Q = 80;
+    var STORAGE_KEY = 'tryout_ukpppg_2026_v1';
+    var ADMIN_KEY = 'tryout_ukpppg_admin_data_v1';
+    var COMPOSITION = { pedagogik: 16, profesional: 16, kepribadian: 8, sosial: 8, teori: 14, kurikulum: 18 };
+    var CASE_QUOTA = { pedagogik: 10, profesional: 11, kepribadian: 5, sosial: 5, teori: 2, kurikulum: 11 };
+
+    var state = {
+      screen: 'start', name: '', field: '', questions: [], answers: {}, flags: {},
+      current: 0, startedAt: null, endAt: null, finishedAt: null,
+      remainingSec: EXAM_DURATION_SEC, timerWarned: { 30: false, 10: false, 5: false }, reviewFilter: 'all'
+    };
+    var timerInterval = null;
+    var adminFilter = 'all';
+    var adminSearch = '';
+
+    /* ---------- UTIL ---------- */
+    function $(sel, root) { return (root || document).querySelector(sel); }
+    function $$(sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); }
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+    function shuffle(arr) { var a = arr.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function pick(arr, n) { return shuffle(arr).slice(0, n); }
+    function fmtTime(sec) { sec = Math.max(0, Math.floor(sec)); var h = Math.floor(sec / 3600), m = Math.floor((sec % 3600) / 60), s = sec % 60; return ('0' + h).slice(-2) + ':' + ('0' + m).slice(-2) + ':' + ('0' + s).slice(-2); }
+    function fmtDuration(ms) { if (ms == null) return '-'; var sec = Math.floor(ms / 1000); var m = Math.floor(sec / 60), s = sec % 60; return m + ' menit ' + s + ' detik'; }
+    function showToast(msg, isErr) {
+      var t = $('#toast'); if (!t) return;
+      t.textContent = msg; t.className = 'toast show' + (isErr ? ' err' : '');
+      clearTimeout(t._t); t._t = setTimeout(function () { t.className = 'toast'; }, 2800);
+    }
+    function catLabel(cat) {
+      var m = { pedagogik: 'Pedagogik', profesional: 'Profesional/PCK', kepribadian: 'Kepribadian', sosial: 'Sosial', teori: 'Teori Belajar', kurikulum: 'Kurikulum/Asesmen/Deep Learning' };
+      return m[cat] || cat;
+    }
+    function catColor(cat) {
+      var m = { pedagogik: '#1d4e89', profesional: '#0b6e4f', kepribadian: '#7a4b00', sosial: '#6a1b9a', teori: '#0d5c63', kurikulum: '#8a4b00' };
+      return m[cat] || '#1d4e89';
+    }
+    function typeLabel(q) { if (q.type === 'complex') return 'Pilihan Ganda Kompleks'; if (q.type === 'bs') return 'Benar/Salah'; return 'Pilihan Ganda'; }
+
+    /* =========================================================
+       BANK SOAL — SEMUA SOAL KASUS SUDAH DITANDAI case:true
+       ========================================================= */
+    var bankPedagogik = [
+      { id: 'P01', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang guru Informatika menemukan dari asesmen awal bahwa 8 murid sudah menguasai konsep perulangan, 12 murid masih bingung membedakan for dan while, dan 5 murid belum memahami konsep dasar percabangan. Tindakan paling tepat yang mencerminkan pembelajaran berdiferensiasi adalah...', opts: ['Mengulang seluruh materi dari awal untuk semua murid agar adil', 'Membagi murid menjadi tiga kelompok sesuai kesiapan dan memberi aktivitas berbeda pada setiap kelompok', 'Meminta 8 murid yang sudah mahir mengajar temannya tanpa panduan guru', 'Melanjutkan ke materi berikutnya karena mayoritas sudah cukup paham'], ans: 1, exp: 'Pembelajaran berdiferensiasi menyesuaikan konten/proses berdasarkan kesiapan murid. Tiga kelompok dengan aktivitas berbeda sesuai ZPD masing-masing adalah tindakan paling tepat.' },
+      { id: 'P02', case: true, cat: 'pedagogik', type: 'single', q: 'Dalam pembelajaran IPA, guru menyadari bahwa beberapa murid kesulitan memahami konsep tekanan karena tidak bisa membayangkan partikel zat. Guru kemudian menyediakan simulasi digital, model konkret, dan teks bergambar. Praktik ini paling mencerminkan prinsip...', opts: ['Teaching at the Right Level', 'Universal Design for Learning (UDL)', 'Pembelajaran berbasis proyek', 'Asesmen sumatif'], ans: 1, exp: 'UDL menyediakan multiple means of representation (berbagai cara penyajian materi) agar semua murid dapat mengakses konsep.' },
+      { id: 'P03', cat: 'pedagogik', type: 'single', q: 'Seorang murid mampu menyelesaikan soal algoritma jika dibantu langkah demi langkah oleh guru, tetapi belum bisa mandiri. Menurut Vygotsky, kondisi ini berada pada...', opts: ['Zona perkembangan aktual', 'Zona perkembangan proksimal (ZPD)', 'Tahap operasional formal', 'Tahap praoperasional'], ans: 1, exp: 'ZPD adalah jarak antara kemampuan aktual dan potensial yang dapat dicapai dengan bantuan (scaffolding).' },
+      { id: 'P04', cat: 'pedagogik', type: 'single', q: 'Guru memberikan bantuan bertahap kepada murid berupa petunjuk, contoh, dan pengurangan bantuan seiring meningkatnya kemampuan murid. Strategi ini disebut...', opts: ['Scaffolding', 'Drill and practice', 'Pemberian hukuman', 'Ceramah interaktif'], ans: 0, exp: 'Scaffolding adalah pemberian dukungan bertahap yang dikurangi ketika murid sudah mampu.' },
+      { id: 'P05', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang guru ingin meningkatkan motivasi intrinsik murid yang tampak acuh pada pelajaran Informatika. Tindakan paling tepat adalah...', opts: ['Memberi nilai tambahan bagi yang aktif', 'Menghubungkan materi dengan masalah nyata yang relevan dan memberi otonomi dalam proyek', 'Mengancam memberi sanksi bagi yang tidak mengerjakan', 'Membandingkan murid dengan teman yang berprestasi'], ans: 1, exp: 'Motivasi intrinsik tumbuh dari relevansi, otonomi, dan rasa kompeten. Menghubungkan materi dengan masalah nyata dan memberi otonomi adalah pilihan terbaik.' },
+      { id: 'P06', case: true, cat: 'pedagogik', type: 'single', q: 'Guru menemukan dua murid dengan hambatan penglihatan di kelasnya. Untuk menciptakan pembelajaran inklusif, tindakan paling tepat adalah...', opts: ['Memisahkan mereka agar tidak mengganggu proses belajar', 'Menyesuaikan media, materi, dan asesmen agar dapat diakses semua murid', 'Meminta orang tua mendampingi terus-menerus', 'Mengurangi tuntutan belajar bagi mereka'], ans: 1, exp: 'Pendidikan inklusif menyesuaikan pembelajaran agar semua murid dapat berpartisipasi, bukan memisahkan atau menurunkan tuntutan.' },
+      { id: 'P07', cat: 'pedagogik', type: 'complex', q: 'Manakah yang merupakan ciri asesmen formatif? (Pilih semua yang benar)', opts: ['Dilakukan selama proses pembelajaran', 'Bertujuan memantau kemajuan belajar', 'Digunakan untuk menentukan nilai akhir semester', 'Memberi umpan balik untuk perbaikan pembelajaran'], ans: [0, 1, 3], exp: 'Asesmen formatif dilakukan selama proses, memantau kemajuan, dan memberi umpan balik. Penentuan nilai akhir adalah fungsi asesmen sumatif.' },
+      { id: 'P08', case: true, cat: 'pedagogik', type: 'single', q: 'Setelah pembelajaran, guru menemukan bahwa 70% murid belum mencapai tujuan pembelajaran pada topik jaringan komputer. Tindakan paling tepat adalah...', opts: ['Melanjutkan ke topik berikutnya karena waktu terbatas', 'Melakukan refleksi, menganalisis penyebab, dan merancang pembelajaran ulang/remedial', 'Memberi nilai rendah sebagai efek jera', 'Menyalahkan murid karena tidak memperhatikan'], ans: 1, exp: 'Guru reflektif menganalisis penyebab ketidaktercapaian dan merancang tindak lanjut (remedial/pembelajaran ulang).' },
+      { id: 'P09', case: true, cat: 'pedagogik', type: 'single', q: 'Guru merancang proyek di mana murid membuat aplikasi sederhana untuk menyelesaikan masalah di lingkungan sekolah. Asesmen yang paling autentik adalah...', opts: ['Tes pilihan ganda tentang teori pemrograman', 'Penilaian produk aplikasi disertai presentasi proses dan refleksi', 'Ujian lisan hafalan sintaks', 'Kuis singkat di akhir pertemuan'], ans: 1, exp: 'Asesmen autentik menilai kinerja nyata (produk + proses + refleksi) yang mencerminkan penerapan pengetahuan.' },
+      { id: 'P10', case: true, cat: 'pedagogik', type: 'single', q: 'Soal yang menuntut murid menganalisis penyebab kegagalan suatu algoritma dan merancang perbaikan termasuk kategori...', opts: ['Mengingat (C1)', 'Memahami (C2)', 'Menerapkan (C3)', 'Menganalisis-Mencipta (C4-C6)'], ans: 3, exp: 'Menganalisis penyebab dan merancang perbaikan termasuk HOTS level C4-C6.' },
+      { id: 'P11', cat: 'pedagogik', type: 'single', q: 'Guru ingin memetakan kemampuan awal murid sebelum memulai topik baru. Asesmen yang tepat adalah...', opts: ['Asesmen sumatif', 'Asesmen diagnostik', 'Asesmen autentik', 'Ujian akhir semester'], ans: 1, exp: 'Asesmen diagnostik dilakukan di awal untuk memetakan kemampuan dan kebutuhan murid.' },
+      { id: 'P12', cat: 'pedagogik', type: 'single', q: 'Seorang guru memberikan tugas yang sama kepada semua murid tanpa mempertimbangkan kesiapan. Kelemahan utama praktik ini adalah...', opts: ['Tugas terlalu mudah bagi semua', 'Tidak mengakomodasi perbedaan kesiapan sehingga sebagian murid bosan dan sebagian frustrasi', 'Membuat guru terlalu sibuk', 'Tidak sesuai kurikulum'], ans: 1, exp: 'Tanpa diferensiasi, murid dengan kesiapan berbeda mengalami kebosanan atau frustrasi.' },
+      { id: 'P13', case: true, cat: 'pedagogik', type: 'single', q: 'Pendidikan sosial emosional (PSE) paling tepat diintegrasikan dengan cara...', opts: ['Memberi ceramah tentang pentingnya emosi sebulan sekali', 'Membiasakan refleksi perasaan, kerja sama, dan pengelolaan konflik dalam aktivitas belajar sehari-hari', 'Menambah jam pelajaran khusus PSE', 'Menilai emosi murid dengan angka'], ans: 1, exp: 'PSE efektif bila diintegrasikan dalam rutinitas dan interaksi pembelajaran sehari-hari.' },
+      { id: 'P14', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang murid pemalu jarang bertanya. Guru ingin memastikan kebutuhan belajarnya terpenuhi. Tindakan paling tepat adalah...', opts: ['Membiarkannya karena itu karakternya', 'Memaksanya bertanya di depan kelas agar berani', 'Menciptakan kesempatan komunikasi yang aman (mis. jurnal, diskusi kelompok kecil, umpan balik tertulis)', 'Menurunkan standar baginya'], ans: 2, exp: 'Guru perlu menyediakan kanal komunikasi yang aman dan inklusif sesuai karakter murid.' },
+      { id: 'P15', cat: 'pedagogik', type: 'single', q: 'Pembelajaran berpusat pada murid paling tercermin ketika...', opts: ['Guru mendominasi penjelasan sepanjang pelajaran', 'Murid aktif mengeksplorasi, berdiskusi, dan mengonstruksi pemahaman dengan fasilitasi guru', 'Murid hanya mendengar dan mencatat', 'Guru memberi jawaban atas semua pertanyaan'], ans: 1, exp: 'Pembelajaran berpusat pada murid menempatkan murid sebagai subjek aktif yang mengonstruksi pengetahuan.' },
+      { id: 'P16', case: true, cat: 'pedagogik', type: 'single', q: 'Guru menggunakan hasil asesmen formatif untuk membentuk kelompok belajar yang homogen sesuai kemampuan sementara. Tujuan paling tepat adalah...', opts: ['Memberi label permanen pada murid', 'Memberi intervensi yang sesuai kebutuhan masing-masing kelompok', 'Memudahkan guru mengajar', 'Mengurangi jumlah tugas'], ans: 1, exp: 'Pengelompokan sementara berdasarkan asesmen bertujuan memberi intervensi yang sesuai, bukan melabeli permanen.' },
+      { id: 'P17', case: true, cat: 'pedagogik', type: 'single', q: 'Dalam pengelolaan kelas yang efektif, guru Informatika menghadapi murid yang sering mengobrol saat praktik. Tindakan paling tepat adalah...', opts: ['Mengeluarkan murid dari kelas', 'Menyusun kesepakatan kelas, memberi tugas yang menantang, dan memantau dengan pendekatan positif', 'Membiarkan agar tidak memperbesar masalah', 'Memberi hukuman fisik'], ans: 1, exp: 'Pengelolaan kelas efektif menggunakan kesepakatan, keterlibatan aktif, dan pendekatan positif, bukan hukuman represif.' },
+      { id: 'P18', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang guru melakukan refleksi setelah pembelajaran. Manakah yang paling mencerminkan refleksi mendalam?', opts: ['Mencatat bahwa pelajaran berjalan lancar', 'Menganalisis bukti belajar murid, mengevaluasi strategi yang digunakan, dan merencanakan perbaikan konkret', 'Menyalin catatan guru lain', 'Mengisi jurnal kehadiran'], ans: 1, exp: 'Refleksi mendalam berbasis bukti belajar, evaluasi strategi, dan rencana perbaikan konkret.' },
+      { id: 'P19', case: true, cat: 'pedagogik', type: 'single', q: 'Guru IPA menemukan miskonsepsi murid bahwa "benda berat selalu jatuh lebih cepat". Strategi paling tepat untuk mengoreksi miskonsepsi adalah...', opts: ['Menjelaskan ulang konsep dengan ceramah', 'Membiarkan murid menemukan sendiri lewat eksperimen terbimbing dan diskusi bukti', 'Memberi hukuman pada yang salah', 'Menghafalkan rumus'], ans: 1, exp: 'Miskonsepsi dikoreksi efektif melalui konflik kognitif dari pengalaman/eksperimen dan diskusi berbasis bukti.' },
+      { id: 'P20', cat: 'pedagogik', type: 'single', q: 'Guru ingin melibatkan murid dalam menilai pekerjaan teman. Manfaat utama peer assessment adalah...', opts: ['Menghemat waktu guru', 'Melatih murid memahami kriteria, memberi umpan balik, dan merefleksikan kualitas karya', 'Menggantikan penilaian guru sepenuhnya', 'Membuat murid saling bersaing'], ans: 1, exp: 'Peer assessment melatih pemahaman kriteria, umpan balik, dan refleksi, bukan menggantikan penilaian guru.' },
+      { id: 'P21', case: true, cat: 'pedagogik', type: 'bs', q: 'Bacalah situasi berikut: Guru menyampaikan tujuan pembelajaran, memberikan asesmen awal, lalu merancang aktivitas yang berbeda untuk tiga kelompok murid. Ia juga menyediakan waktu refleksi di akhir. Tentukan Benar atau Salah untuk setiap pernyataan.', stmts: ['Guru menggunakan asesmen diagnostik di awal pembelajaran.', 'Guru menerapkan pembelajaran berdiferensiasi.', 'Guru menutup pembelajaran dengan refleksi murid.'], ans: [true, true, true], exp: 'Semua pernyataan sesuai dengan praktik yang digambarkan.' },
+      { id: 'P22', case: true, cat: 'pedagogik', type: 'single', q: 'Murid dengan gaya belajar kinestetik sulit duduk diam. Tindakan guru paling tepat adalah...', opts: ['Memaksanya duduk diam', 'Mengintegrasikan aktivitas bergerak/praktik dalam pembelajaran', 'Memberinya hukuman', 'Mengabaikannya'], ans: 1, exp: 'Guru sebaiknya mengakomodasi kebutuhan belajar melalui aktivitas yang sesuai, bukan memaksa.' },
+      { id: 'P23', cat: 'pedagogik', type: 'single', q: 'Tujuan utama asesmen autentik adalah...', opts: ['Mengukur hafalan', 'Menilai kemampuan murid menerapkan pengetahuan dalam konteks nyata', 'Memudahkan penilaian', 'Membandingkan murid'], ans: 1, exp: 'Asesmen autentik menilai penerapan pengetahuan/keterampilan dalam konteks nyata.' },
+      { id: 'P24', cat: 'pedagogik', type: 'single', q: 'Guru memberikan soal yang menuntut murid mengevaluasi dua solusi algoritma dan memilih yang lebih efisien. Soal ini termasuk...', opts: ['LOTS', 'HOTS', 'Soal hafalan', 'Soal prosedural rutin'], ans: 1, exp: 'Mengevaluasi dan memilih solusi terbaik termasuk HOTS.' },
+      { id: 'P25', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang guru ingin memastikan semua murid terlibat dalam diskusi kelompok. Strategi paling tepat adalah...', opts: ['Menunjuk satu murid untuk mewakili kelompok', 'Memberi peran spesifik dan tanggung jawab individual dalam kelompok', 'Membiarkan kelompok mengatur sendiri', 'Mengurangi jumlah anggota'], ans: 1, exp: 'Peran dan tanggung jawab individual memastikan akuntabilitas dan keterlibatan semua anggota.' },
+      { id: 'P26', case: true, cat: 'pedagogik', type: 'single', q: 'Guru menemukan murid yang cemas saat menghadapi ujian. Tindakan paling tepat adalah...', opts: ['Mengabaikan karena akan terbiasa', 'Menciptakan iklim aman, memberi kesempatan latihan, dan umpan balik konstruktif', 'Menambah frekuensi ujian', 'Membandingkan dengan teman'], ans: 1, exp: 'Iklim aman, latihan, dan umpan balik konstruktif membantu mengurangi kecemasan.' },
+      { id: 'P27', cat: 'pedagogik', type: 'single', q: 'Model TaRL (Teaching at the Right Level) paling tepat diterapkan ketika...', opts: ['Semua murid memiliki kemampuan sama', 'Guru mengelompokkan murid berdasarkan level kemampuan dan memberi pembelajaran sesuai level', 'Guru hanya mengajar murid pintar', 'Guru memberi tugas yang sama'], ans: 1, exp: 'TaRL menyesuaikan pembelajaran dengan level kemampuan aktual murid.' },
+      { id: 'P28', cat: 'pedagogik', type: 'complex', q: 'Manakah pernyataan yang benar tentang asesmen sumatif? (Pilih semua yang benar)', opts: ['Dilakukan di akhir pembelajaran/semester', 'Digunakan untuk mengukur ketercapaian tujuan', 'Memberi umpan balik perbaikan selama proses', 'Sering digunakan untuk laporan hasil belajar'], ans: [0, 1, 3], exp: 'Sumatif di akhir, mengukur ketercapaian, dan untuk laporan. Umpan balik perbaikan selama proses adalah fungsi formatif.' },
+      { id: 'P29', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang guru ingin membangun kemandirian murid dalam belajar. Tindakan paling tepat adalah...', opts: ['Memberi semua jawaban', 'Melatih murid menetapkan tujuan, memantau kemajuan, dan mengevaluasi belajar sendiri', 'Mengawasi setiap langkah', 'Mengurangi tugas'], ans: 1, exp: 'Kemandirian dibangun melalui metakognisi: menetapkan tujuan, memantau, dan mengevaluasi diri.' },
+      { id: 'P30', cat: 'pedagogik', type: 'single', q: 'Pembelajaran yang mengakomodasi keragaman murid, termasuk yang berkebutuhan khusus, disebut...', opts: ['Pembelajaran eksklusif', 'Pembelajaran inklusif', 'Pembelajaran klasikal', 'Pembelajaran individual'], ans: 1, exp: 'Pembelajaran inklusif mengakomodasi keragaman semua murid.' },
+      { id: 'P31', case: true, cat: 'pedagogik', type: 'single', q: 'Anda membimbing proyek kelompok sistem perpustakaan. Satu kelompok tampak pasif dan hanya mengandalkan satu anggota. Tindakan paling tepat adalah...', opts: ['Membiarkan karena hasil akhir tetap jadi', 'Memberi peran dan tanggung jawab individual yang jelas, serta memantau kontribusi tiap anggota', 'Mengurangi nilai seluruh kelompok', 'Memindahkan anggota pasif ke kelompok lain tanpa dialog'], ans: 1, exp: 'Pembelajaran kolaboratif efektif membutuhkan akuntabilitas individual dan peran jelas agar semua terlibat.' },
+      { id: 'P32', case: true, cat: 'pedagogik', type: 'single', q: 'Selama proyek berlangsung, Anda menemukan beberapa siswa kebingungan membagi tugas. Anda memberi contoh cara memecah tugas dan perlahan mengurangi bantuan seiring kemampuan siswa meningkat. Strategi ini disebut...', opts: ['Scaffolding', 'Hukuman', 'Ceramah', 'Drill'], ans: 0, exp: 'Memberi dukungan bertahap lalu menguranginya seiring kemampuan siswa adalah scaffolding.' },
+      { id: 'P33', case: true, cat: 'pedagogik', type: 'complex', q: 'Anda merancang pembelajaran berdiferensiasi pada topik algoritma. Manakah tindakan yang mencerminkan diferensiasi yang tepat? (Pilih semua yang benar)', opts: ['Memberi materi berbeda sesuai kesiapan siswa', 'Memberi semua siswa tugas yang sama persis tanpa variasi', 'Menyediakan pilihan cara menunjukkan pemahaman (lisan, tertulis, produk)', 'Mengelompokkan siswa secara permanen berdasarkan kemampuan', 'Memberi dukungan tambahan bagi siswa yang membutuhkan'], ans: [0, 2, 4], exp: 'Diferensiasi menyesuaikan konten/proses/produk dan memberi dukungan sesuai kebutuhan, bukan menyeragamkan atau melabeli permanen.' },
+      { id: 'P34', case: true, cat: 'pedagogik', type: 'bs', q: 'Seorang guru menemukan 70% murid belum mencapai tujuan pembelajaran pada topik jaringan komputer. Tentukan Benar atau Salah untuk setiap tindakan berikut.', stmts: ['Melanjutkan ke topik berikutnya karena waktu terbatas.', 'Menganalisis penyebab ketidaktercapaian berdasarkan bukti asesmen.', 'Merancang pembelajaran ulang atau remedial yang terarah.', 'Memberi nilai rendah sebagai efek jera.', 'Melibatkan murid dalam refleksi untuk memahami kesulitan mereka.'], ans: [false, true, true, false, true], exp: 'Guru reflektif menganalisis penyebab, merancang remedial, dan melibatkan murid. Melanjutkan tanpa perbaikan atau menghukum bukan tindakan mendidik.' },
+      { id: 'P35', case: true, cat: 'pedagogik', type: 'single', q: 'Seorang murid mampu menyelesaikan soal algoritma jika dibantu langkah demi langkah, tetapi belum bisa mandiri. Berdasarkan teori Vygotsky, tindakan paling tepat adalah...', opts: ['Membiarkan murid bekerja sendiri agar mandiri', 'Memberi scaffolding bertahap dan menguranginya seiring kemampuan meningkat', 'Memberi soal yang lebih sulit', 'Menurunkan standar penilaian'], ans: 1, exp: 'ZPD dicapai melalui scaffolding bertahap yang dikurangi seiring kemampuan murid meningkat.' },
+      { id: 'P36', case: true, cat: 'pedagogik', type: 'single', q: 'Anda menemukan murid dengan miskonsepsi bahwa "benda berat selalu jatuh lebih cepat". Strategi paling tepat untuk mengoreksi miskonsepsi adalah...', opts: ['Menjelaskan ulang konsep dengan ceramah', 'Membiarkan murid menemukan sendiri lewat eksperimen terbimbing dan diskusi bukti', 'Memberi hukuman pada yang salah', 'Menghafalkan rumus'], ans: 1, exp: 'Miskonsepsi dikoreksi efektif melalui konflik kognitif dari eksperimen dan diskusi berbasis bukti.' },
+      { id: 'P37', case: true, cat: 'pedagogik', type: 'single', q: 'Anda mengajar di kelas dengan murid yang sangat beragam kemampuannya. Anda ingin memastikan semua murid berkembang optimal. Pendekatan paling tepat adalah...', opts: ['Mengajar dengan kecepatan rata-rata kelas', 'Menerapkan pembelajaran berdiferensiasi berdasarkan kesiapan, minat, dan profil belajar', 'Hanya fokus pada murid yang cepat memahami', 'Memberi tugas yang sama untuk semua'], ans: 1, exp: 'Diferensiasi berdasarkan kesiapan, minat, dan profil belajar memastikan semua murid berkembang.' },
+      { id: 'P38', case: true, cat: 'pedagogik', type: 'complex', q: 'Manakah yang merupakan indikator pembelajaran bermakna (deep learning)? (Pilih semua yang benar)', opts: ['Siswa mampu menghubungkan konsep dengan pengalaman nyata', 'Siswa hanya menghafal definisi', 'Siswa mampu merefleksikan proses belajarnya', 'Siswa mampu menerapkan konsep pada situasi baru', 'Siswa menyalin jawaban teman'], ans: [0, 2, 3], exp: 'Pembelajaran bermakna ditandai kemampuan menghubungkan, merefleksi, dan menerapkan, bukan menghafal atau menyalin.' },
+      { id: 'P39', case: true, cat: 'pedagogik', type: 'single', q: 'Anda menemukan bahwa beberapa siswa selalu menunggu instruksi dan tidak berinisiatif. Untuk membangun kemandirian, tindakan paling tepat adalah...', opts: ['Memberi instruksi yang lebih rinci setiap saat', 'Melatih siswa menetapkan tujuan, memantau kemajuan, dan mengevaluasi belajar sendiri', 'Membiarkan siswa tanpa bimbingan', 'Mengurangi tugas'], ans: 1, exp: 'Kemandirian dibangun melalui metakognisi: menetapkan tujuan, memantau, dan mengevaluasi diri.' },
+      { id: 'P40', case: true, cat: 'pedagogik', type: 'bs', q: 'Seorang guru merancang pembelajaran dengan memberi siswa pilihan cara menunjukkan pemahaman (presentasi, poster, atau video). Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Guru menerapkan diferensiasi produk.', 'Guru memberikan otonomi kepada siswa.', 'Guru mengabaikan perbedaan minat siswa.', 'Guru mengakomodasi gaya belajar yang beragam.', 'Guru menurunkan standar penilaian.'], ans: [true, true, false, true, false], exp: 'Memberi pilihan produk = diferensiasi produk dan otonomi, serta mengakomodasi gaya belajar. Bukan mengabaikan minat atau menurunkan standar.' }
+    ];
+
+    var bankProfInf = [
+      { id: 'PR-I01', case: true, cat: 'profesional', type: 'single', q: 'Seorang murid menggunakan binary search pada data yang belum diurutkan. Kesalahan konsep utama murid tersebut adalah...', opts: ['Binary search hanya untuk data angka', 'Binary search mensyaratkan data terurut agar pembagian ruang pencarian valid', 'Binary search tidak bisa digunakan pada array', 'Binary search memerlukan rekursi'], ans: 1, exp: 'Prasyarat binary search adalah data terurut; tanpa itu pembagian ruang pencarian tidak valid.' },
+      { id: 'PR-I02', cat: 'profesional', type: 'single', q: 'Dalam pseudocode, struktur yang digunakan untuk mengulang pernyataan selama kondisi benar adalah...', opts: ['if-then', 'while', 'input', 'procedure'], ans: 1, exp: 'while adalah perulangan selama kondisi bernilai benar.' },
+      { id: 'PR-I03', cat: 'profesional', type: 'single', q: 'Seorang murid menulis kode: x = 5; x = x + 2; x = x * 3. Nilai akhir x adalah...', opts: ['11', '15', '21', '30'], ans: 2, exp: 'x=5; x=7; x=21. Jadi nilai akhir 21.' },
+      { id: 'PR-I04', cat: 'profesional', type: 'single', q: 'Struktur data yang menerapkan prinsip LIFO adalah...', opts: ['Queue', 'Stack', 'Array', 'Linked list'], ans: 1, exp: 'Stack = Last In First Out (LIFO).' },
+      { id: 'PR-I05', cat: 'profesional', type: 'single', q: 'Algoritma pengurutan yang membandingkan elemen berdekatan dan menukarnya jika salah urutan adalah...', opts: ['Quick sort', 'Bubble sort', 'Merge sort', 'Binary search'], ans: 1, exp: 'Bubble sort membandingkan dan menukar elemen berdekatan.' },
+      { id: 'PR-I06', case: true, cat: 'profesional', type: 'single', q: 'Guru ingin mengajarkan konsep percabangan. Kasus paling kontekstual adalah...', opts: ['Menghafal sintaks if', 'Membuat program penentu kelulusan berdasarkan nilai KKM', 'Menulis ulang definisi', 'Mendengarkan ceramah'], ans: 1, exp: 'Kasus penentu kelulusan menggunakan percabangan secara kontekstual dan bermakna.' },
+      { id: 'PR-I07', cat: 'profesional', type: 'single', q: 'Miskonsepsi umum tentang array adalah...', opts: ['Array menyimpan banyak data sejenis', 'Indeks array biasanya dimulai dari 0', 'Array tidak memerlukan ukuran dan dapat menyimpan semua tipe sekaligus secara bebas', 'Array dapat diakses dengan indeks'], ans: 2, exp: 'Array umumnya menyimpan tipe sejenis dan memiliki ukuran tetap (pada struktur statis).' },
+      { id: 'PR-I08', case: true, cat: 'profesional', type: 'single', q: 'Seorang murid kesulitan memahami fungsi/prosedur. Cara paling tepat membantu adalah...', opts: ['Meminta menghafal sintaks', 'Menganalogikan fungsi sebagai mesin dengan input dan output, lalu praktik membuat fungsi sederhana', 'Memberi hukuman', 'Melewati materi'], ans: 1, exp: 'Analogia konkret + praktik membantu memahami abstraksi fungsi.' },
+      { id: 'PR-I09', cat: 'profesional', type: 'single', q: 'Dalam flowchart, simbol belah ketupat digunakan untuk...', opts: ['Proses', 'Keputusan/percabangan', 'Input/output', 'Terminator'], ans: 1, exp: 'Belah ketupat = keputusan/percabangan.' },
+      { id: 'PR-I10', case: true, cat: 'profesional', type: 'single', q: 'Guru mengajarkan berpikir komputasional melalui aktivitas menyusun langkah menyiapkan teh. Aktivitas ini melatih...', opts: ['Algoritma', 'Basis data', 'Jaringan', 'Kecerdasan artifisial'], ans: 0, exp: 'Menyusun langkah berurutan melatih berpikir algoritmik.' },
+      { id: 'PR-I11', cat: 'profesional', type: 'single', q: 'Keamanan digital yang paling tepat untuk melindungi akun adalah...', opts: ['Menggunakan satu password untuk semua akun', 'Menggunakan password kuat dan berbeda serta autentikasi dua faktor', 'Membagikan password ke teman', 'Menulis password di tempat umum'], ans: 1, exp: 'Password kuat & unik + 2FA adalah praktik keamanan terbaik.' },
+      { id: 'PR-I12', case: true, cat: 'profesional', type: 'single', q: 'Kasus: guru menemukan murid menggunakan gambar dari internet tanpa mencantumkan sumber. Konsep yang perlu ditekankan adalah...', opts: ['Hak cipta dan etika digital', 'Kecepatan internet', 'Kapasitas penyimpanan', 'Algoritma'], ans: 0, exp: 'Penggunaan karya tanpa atribusi melanggar hak cipta dan etika digital.' },
+      { id: 'PR-I13', cat: 'profesional', type: 'single', q: 'Perangkat yang menghubungkan jaringan berbeda dan meneruskan paket antar jaringan adalah...', opts: ['Switch', 'Router', 'Hub', 'Repeater'], ans: 1, exp: 'Router menghubungkan jaringan berbeda dan meneruskan paket.' },
+      { id: 'PR-I14', cat: 'profesional', type: 'single', q: 'Siswa menulis perulangan for (i=0; i<5; i++) yang mencetak i. Output yang benar adalah...', opts: ['0 1 2 3 4', '1 2 3 4 5', '0 1 2 3 4 5', '1 2 3 4'], ans: 0, exp: 'i mulai 0 sampai 4 (i<5), mencetak 0 1 2 3 4.' },
+      { id: 'PR-I15', cat: 'profesional', type: 'single', q: 'Analisis data sederhana: nilai [70,80,90,60,100]. Rata-rata adalah...', opts: ['70', '75', '80', '85'], ans: 2, exp: '(70+80+90+60+100)/5 = 400/5 = 80.' },
+      { id: 'PR-I16', case: true, cat: 'profesional', type: 'single', q: 'Pernyataan yang tepat tentang AI adalah...', opts: ['AI selalu benar', 'AI belajar dari data dan dapat dipengaruhi kualitas data', 'AI tidak memerlukan data', 'AI menggantikan etika manusia'], ans: 1, exp: 'Kualitas data memengaruhi hasil AI; AI tidak selalu benar.' },
+      { id: 'PR-I17', cat: 'profesional', type: 'single', q: 'Guru ingin mengajarkan pencarian data. Perbedaan searching linear dan binary yang tepat adalah...', opts: ['Linear lebih cepat selalu', 'Binary mensyaratkan data terurut dan membagi ruang pencarian', 'Keduanya identik', 'Binary tidak memerlukan perbandingan'], ans: 1, exp: 'Binary mensyaratkan data terurut dan membagi ruang pencarian.' },
+      { id: 'PR-I18', cat: 'profesional', type: 'complex', q: 'Manakah yang termasuk prinsip berpikir komputasional? (Pilih semua yang benar)', opts: ['Dekomposisi', 'Pengenalan pola', 'Abstraksi', 'Menghafal sintaks'], ans: [0, 1, 2], exp: 'Berpikir komputasional meliputi dekomposisi, pengenalan pola, abstraksi, dan algoritma.' },
+      { id: 'PR-I19', case: true, cat: 'profesional', type: 'single', q: 'Kesalahan logika pada kode: if (nilai >= 70) lulus; else if (nilai >= 80) sangatBaik; Kesalahan utama adalah...', opts: ['Tidak ada kesalahan', 'Kondisi sangatBaik tidak akan pernah tercapai karena sudah tertangkap kondisi sebelumnya', 'Sintaks salah', 'Variabel tidak dideklarasikan'], ans: 1, exp: 'Karena nilai >=70 ditangkap lebih dulu, cabang nilai >=80 tidak akan tercapai.' },
+      { id: 'PR-I20', cat: 'profesional', type: 'single', q: 'Guru mengajarkan basis data dasar. Konsep tabel, baris, dan kolom paling tepat dijelaskan sebagai...', opts: ['Tabel = kumpulan data; baris = record; kolom = field/atribut', 'Tabel = program; baris = kode; kolom = output', 'Tabel = gambar; baris = warna', 'Tidak ada hubungan'], ans: 0, exp: 'Tabel terdiri dari record (baris) dan field/atribut (kolom).' },
+      { id: 'PR-I21', case: true, cat: 'profesional', type: 'single', q: 'Seorang murid memakai perulangan tak berujung. Penyebab paling mungkin adalah...', opts: ['Kondisi perulangan tidak pernah bernilai salah', 'Variabel tidak diberi nama', 'Program terlalu panjang', 'Kurang komentar'], ans: 0, exp: 'Infinite loop terjadi bila kondisi perulangan tidak pernah menjadi false.' },
+      { id: 'PR-I22', case: true, cat: 'profesional', type: 'single', q: 'Untuk mengajarkan literasi digital kritis, aktivitas paling tepat adalah...', opts: ['Meminta murid menghafal definisi', 'Menganalisis kebenaran informasi dari beberapa sumber dan mendiskusikan ciri hoaks', 'Melarang internet', 'Memberi ceramah'], ans: 1, exp: 'Literasi digital kritis dilatih melalui analisis sumber dan identifikasi hoaks.' },
+      { id: 'PR-I23', cat: 'profesional', type: 'single', q: 'Dampak sosial Informatika yang perlu dibahas guru adalah...', opts: ['Hanya manfaat teknologi', 'Manfaat dan risiko (privasi, kesenjangan digital, etika) secara seimbang', 'Hanya kerugian', 'Tidak relevan'], ans: 1, exp: 'Pembahasan dampak sosial harus seimbang antara manfaat dan risiko.' },
+      { id: 'PR-I24', cat: 'profesional', type: 'single', q: 'Struktur queue menerapkan prinsip...', opts: ['LIFO', 'FIFO', 'Random', 'Prioritas selalu'], ans: 1, exp: 'Queue = First In First Out (FIFO).' },
+      { id: 'PR-I25', case: true, cat: 'profesional', type: 'single', q: 'Guru ingin menilai pemahaman algoritma murid. Asesmen paling tepat adalah...', opts: ['Meminta menghafal definisi', 'Meminta murid menjelaskan langkah algoritma dan menerapkannya pada kasus baru', 'Kuis tebak istilah', 'Menyuruh menyalin'], ans: 1, exp: 'Menjelaskan dan menerapkan pada kasus baru menunjukkan pemahaman mendalam.' },
+      { id: 'PR-I26', case: true, cat: 'profesional', type: 'single', q: 'Anda mengajar Informatika kelas X. Siswa diminta merancang sistem informasi peminjaman buku perpustakaan sekolah. Anda ingin mengukur kemampuan ABSTRAKSI siswa. Manakah tugas/asesmen yang PALING tepat?', opts: ['Meminta siswa menghafal sintaks SQL tabel buku dan peminjaman', 'Meminta siswa mengidentifikasi entitas, atribut, dan relasi penting (buku, anggota, peminjaman) serta mengabaikan detail tidak relevan', 'Meminta siswa menyalin flowchart contoh sistem perpustakaan', 'Meminta siswa menghitung total denda keterlambatan'], ans: 1, exp: 'Abstraksi = menyaring informasi penting dan mengabaikan detail tidak relevan. Identifikasi entitas/atribut/relasi inti adalah wujud abstraksi dalam pemodelan sistem.' },
+      { id: 'PR-I27', case: true, cat: 'profesional', type: 'complex', q: 'Dalam proyek sistem peminjaman buku perpustakaan, manakah aktivitas siswa yang mencerminkan DEKOMPOSISI masalah? (Pilih semua yang benar)', opts: ['Memecah sistem menjadi submasalah: manajemen buku, anggota, transaksi peminjaman, dan pengembalian', 'Menghafal seluruh kode program jadi', 'Mengidentifikasi langkah tiap submasalah secara terpisah', 'Menentukan prioritas pengerjaan tiap komponen', 'Menyalin proyek teman tanpa analisis'], ans: [0, 2, 3], exp: 'Dekomposisi = memecah masalah besar menjadi bagian lebih kecil yang dapat dikelola. Menghafal kode dan menyalin bukan dekomposisi.' },
+      { id: 'PR-I28', case: true, cat: 'profesional', type: 'bs', q: 'Seorang siswa merancang sistem peminjaman buku perpustakaan. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Mengabaikan detail warna sampul buku saat merancang basis data merupakan contoh abstraksi.', 'Memecah sistem menjadi modul buku, anggota, dan transaksi merupakan dekomposisi.', 'Menemukan bahwa pola peminjaman selalu memiliki tanggal pinjam dan tanggal kembali merupakan pengenalan pola.', 'Menuliskan urutan langkah validasi peminjaman merupakan algoritma.', 'Menghafal seluruh sintaks bahasa pemrograman tanpa memahami struktur masalah merupakan contoh computational thinking.'], ans: [true, true, true, true, false], exp: 'Pernyataan 5 salah karena computational thinking menekankan pemecahan masalah terstruktur, bukan hafalan sintaks.' },
+      { id: 'PR-I29', case: true, cat: 'profesional', type: 'single', q: 'Anda menilai proyek aplikasi perpustakaan siswa. Satu kelompok berhasil membuat aplikasi berjalan, tetapi kode berantakan, tanpa dokumentasi, dan anggota tidak dapat menjelaskan alur programnya. Penilaian paling tepat adalah...', opts: ['Memberi nilai tinggi karena aplikasi berjalan', 'Memberi nilai berdasarkan rubrik yang mencakup fungsi, kualitas kode, dokumentasi, dan pemahaman proses', 'Memberi nilai rendah tanpa penjelasan', 'Meminta kelompok lain menilai'], ans: 1, exp: 'Asesmen autentik menilai produk sekaligus proses dan pemahaman, bukan hanya hasil akhir.' },
+      { id: 'PR-I30', case: true, cat: 'profesional', type: 'single', q: 'Dalam proyek sistem perpustakaan, siswa diminta mengubah cara penyimpanan data dari file teks ke basis data relasional TANPA mengubah logika antarmuka. Prinsip computational thinking yang paling ditonjolkan adalah...', opts: ['Abstraksi (memisahkan logika antarmuka dari detail penyimpanan)', 'Menghafal query', 'Menyalin kode', 'Menghitung rata-rata'], ans: 0, exp: 'Memisahkan lapisan antarmuka dari detail implementasi penyimpanan adalah wujud abstraksi.' },
+      { id: 'PR-I31', case: true, cat: 'profesional', type: 'single', q: 'Seorang siswa menulis kode: if (nilai >= 70) lulus; else if (nilai >= 80) sangatBaik; Guru meminta siswa menganalisis mengapa nilai 85 tidak pernah masuk "sangatBaik". Kesalahan logika utamanya adalah...', opts: ['Tidak ada kesalahan', 'Kondisi sangatBaik tidak akan pernah tercapai karena sudah tertangkap kondisi sebelumnya', 'Sintaks salah', 'Variabel tidak dideklarasikan'], ans: 1, exp: 'Karena nilai >=70 ditangkap lebih dulu, cabang nilai >=80 tidak akan tercapai. Ini latihan analisis logika (C4).' },
+      { id: 'PR-I32', case: true, cat: 'profesional', type: 'bs', q: 'Seorang siswa menganalisis dua algoritma pengurutan untuk data 10.000 elemen. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Bubble sort umumnya lebih efisien daripada quick sort pada data besar.', 'Quick sort membagi data berdasarkan pivot sehingga rata-rata lebih cepat.', 'Memilih algoritma harus mempertimbangkan ukuran data dan karakteristiknya.', 'Binary search dapat digunakan pada data yang belum terurut.', 'Kompleksitas waktu memengaruhi kinerja program pada data besar.'], ans: [false, true, true, false, true], exp: 'Bubble sort kurang efisien untuk data besar (1 salah), binary search butuh data terurut (4 salah). Pernyataan lain benar.' },
+      { id: 'PR-I33', case: true, cat: 'profesional', type: 'single', q: 'Seorang siswa diminta mengevaluasi dua solusi algoritma pencarian pada data 1 juta elemen: linear search vs binary search. Kesimpulan paling tepat adalah...', opts: ['Linear search selalu lebih baik', 'Binary search lebih efisien jika data terurut, karena membagi ruang pencarian', 'Keduanya identik', 'Binary search tidak memerlukan data terurut'], ans: 1, exp: 'Mengevaluasi efisiensi algoritma berdasarkan prasyarat dan kompleksitas adalah HOTS (C5).' },
+      { id: 'PR-I34', case: true, cat: 'profesional', type: 'complex', q: 'Anda menilai proyek sistem perpustakaan siswa. Manakah indikator yang mencerminkan kemampuan computational thinking tingkat tinggi? (Pilih semua yang benar)', opts: ['Siswa memecah sistem menjadi modul-modul terpisah', 'Siswa hanya menyalin kode contoh', 'Siswa mengidentifikasi pola data yang berulang', 'Siswa merancang model entitas-relasi yang efisien', 'Siswa menghafal seluruh sintaks tanpa memahami alur'], ans: [0, 2, 3], exp: 'Dekomposisi, pengenalan pola, dan perancangan model adalah indikator CT tingkat tinggi. Menyalin dan menghafal bukan.' },
+      { id: 'PR-I35', case: true, cat: 'profesional', type: 'single', q: 'Seorang siswa membuat program yang berjalan benar tetapi sangat lambat pada data besar. Anda meminta siswa menganalisis penyebabnya. Ini melatih kemampuan...', opts: ['Mengingat (C1)', 'Menganalisis (C4)', 'Menghafal (C1)', 'Menyalin (C1)'], ans: 1, exp: 'Menganalisis penyebab masalah kinerja program termasuk HOTS level C4.' },
+      { id: 'PR-I36', case: true, cat: 'profesional', type: 'bs', q: 'Seorang siswa merancang sistem informasi perpustakaan. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Membuat flowchart alur peminjaman membantu merancang algoritma.', 'Mengabaikan detail yang tidak relevan merupakan bagian dari abstraksi.', 'Menghafal sintaks SQL tanpa memahami relasi tabel adalah contoh computational thinking.', 'Mengidentifikasi entitas dan atribut penting merupakan bagian dari abstraksi.', 'Menyalin kode teman tanpa memahami logika adalah praktik yang dianjurkan.'], ans: [true, true, false, true, false], exp: 'Pernyataan 3 dan 5 salah. Computational thinking menekankan pemahaman struktur, bukan hafalan atau menyalin.' }
+    ];
+
+    var bankProfIpa = [
+      { id: 'PR-A01', case: true, cat: 'profesional', type: 'single', q: 'Seorang murid berhipotesis "tanaman tumbuh lebih cepat jika disiram lebih banyak". Variabel bebas pada percobaan ini adalah...', opts: ['Tinggi tanaman', 'Jumlah air', 'Jenis tanah', 'Suhu'], ans: 1, exp: 'Variabel bebas adalah yang dimanipulasi, yaitu jumlah air.' },
+      { id: 'PR-A02', case: true, cat: 'profesional', type: 'single', q: 'Dalam percobaan, murid mengubah satu variabel dan menjaga variabel lain tetap. Prinsip ini disebut...', opts: ['Variabel kontrol', 'Pengulangan', 'Hipotesis', 'Kesimpulan'], ans: 0, exp: 'Menjaga variabel lain tetap disebut mengontrol variabel.' },
+      { id: 'PR-A03', case: true, cat: 'profesional', type: 'single', q: 'Miskonsepsi "benda berat selalu jatuh lebih cepat" paling tepat dikoreksi melalui...', opts: ['Ceramah', 'Eksperimen menjatuhkan benda berbeda massa dalam kondisi hambatan udara minimal', 'Menghafal rumus', 'Membaca buku saja'], ans: 1, exp: 'Eksperimen dan diskusi bukti mengoreksi miskonsepsi secara efektif.' },
+      { id: 'PR-A04', cat: 'profesional', type: 'single', q: 'Organel sel yang berperan dalam respirasi sel dan menghasilkan energi adalah...', opts: ['Ribosom', 'Mitokondria', 'Nukleus', 'Vakuola'], ans: 1, exp: 'Mitokondria adalah tempat respirasi sel menghasilkan energi.' },
+      { id: 'PR-A05', cat: 'profesional', type: 'single', q: 'Dalam ekosistem, organisme yang mengubah energi cahaya menjadi energi kimia adalah...', opts: ['Produsen', 'Konsumen', 'Dekomposer', 'Predator'], ans: 0, exp: 'Produsen (tumbuhan) melakukan fotosintesis mengubah cahaya menjadi energi kimia.' },
+      { id: 'PR-A06', cat: 'profesional', type: 'single', q: 'Perubahan wujud dari gas ke cair disebut...', opts: ['Menguap', 'Mengembun', 'Membeku', 'Menyublim'], ans: 1, exp: 'Mengembun = gas menjadi cair.' },
+      { id: 'PR-A07', cat: 'profesional', type: 'single', q: 'Satuan SI untuk gaya adalah...', opts: ['Joule', 'Newton', 'Watt', 'Pascal'], ans: 1, exp: 'Gaya dalam SI diukur dalam Newton (N).' },
+      { id: 'PR-A08', cat: 'profesional', type: 'single', q: 'Semakin dalam posisi di dalam zat cair, tekanan hidrostatis...', opts: ['Semakin kecil', 'Semakin besar', 'Tetap', 'Tidak terpengaruh'], ans: 1, exp: 'Tekanan hidrostatis sebanding dengan kedalaman.' },
+      { id: 'PR-A09', cat: 'profesional', type: 'single', q: 'Alat yang mengubah energi gerak menjadi energi listrik adalah...', opts: ['Motor', 'Generator', 'Transformator', 'Baterai'], ans: 1, exp: 'Generator mengubah energi gerak menjadi listrik.' },
+      { id: 'PR-A10', cat: 'profesional', type: 'single', q: 'Guru ingin mengajarkan metode ilmiah. Urutan yang tepat adalah...', opts: ['Merumuskan masalah - hipotesis - eksperimen - analisis - kesimpulan', 'Kesimpulan - eksperimen - masalah - hipotesis', 'Eksperimen - kesimpulan - masalah', 'Hipotesis - kesimpulan - eksperimen'], ans: 0, exp: 'Urutan metode ilmiah: masalah, hipotesis, eksperimen, analisis, kesimpulan.' },
+      { id: 'PR-A11', cat: 'profesional', type: 'single', q: 'Data pertumbuhan: hari 1=2cm, hari 3=6cm, hari 5=10cm. Laju pertumbuhan rata-rata per hari adalah...', opts: ['1 cm', '2 cm', '3 cm', '4 cm'], ans: 1, exp: '(10-2)/(5-1)=8/4=2 cm per hari.' },
+      { id: 'PR-A12', cat: 'profesional', type: 'single', q: 'Pernyataan yang tepat tentang energi adalah...', opts: ['Energi dapat diciptakan', 'Energi kekal dan dapat berubah bentuk', 'Energi hilang total', 'Energi hanya kinetik'], ans: 1, exp: 'Hukum kekekalan energi: energi tidak diciptakan/dimusnahkan, hanya berubah bentuk.' },
+      { id: 'PR-A13', case: true, cat: 'profesional', type: 'single', q: 'Miskonsepsi "fotosintesis hanya terjadi siang hari karena butuh cahaya" sebaiknya diklarifikasi dengan menjelaskan bahwa...', opts: ['Fotosintesis tidak butuh cahaya', 'Fotosintesis membutuhkan cahaya, tetapi respirasi berlangsung terus', 'Tumbuhan tidak bernapas', 'Cahaya tidak relevan'], ans: 1, exp: 'Fotosintesis butuh cahaya, sedangkan respirasi berlangsung siang-malam.' },
+      { id: 'PR-A14', cat: 'profesional', type: 'single', q: 'Suhu 300 K setara dengan... derajat Celsius', opts: ['17', '27', '37', '47'], ans: 1, exp: 'K = C + 273, maka C = 300-273 = 27 derajat Celsius.' },
+      { id: 'PR-A15', cat: 'profesional', type: 'single', q: 'Fenomena gelombang bunyi yang dapat didengar manusia memiliki rentang frekuensi...', opts: ['0-20 Hz', '20-20.000 Hz', '>20.000 Hz', 'Semua frekuensi'], ans: 1, exp: 'Audiosonik manusia 20-20.000 Hz.' },
+      { id: 'PR-A16', case: true, cat: 'profesional', type: 'single', q: 'Guru ingin melatih interpretasi data. Murid diberi tabel hasil eksperimen dan diminta menyimpulkan. Aktivitas ini melatih...', opts: ['Hafalan', 'Analisis dan interpretasi data', 'Menyalin', 'Mendengarkan'], ans: 1, exp: 'Menyimpulkan dari tabel melatih analisis dan interpretasi data.' },
+      { id: 'PR-A17', cat: 'profesional', type: 'single', q: 'Organ sistem pernapasan yang menjadi tempat pertukaran gas adalah...', opts: ['Trakea', 'Bronkus', 'Alveolus', 'Laring'], ans: 2, exp: 'Alveolus adalah tempat pertukaran O2 dan CO2.' },
+      { id: 'PR-A18', cat: 'profesional', type: 'single', q: 'Planet yang paling dekat dengan Matahari adalah...', opts: ['Venus', 'Merkurius', 'Bumi', 'Mars'], ans: 1, exp: 'Merkurius adalah planet terdekat dari Matahari.' },
+      { id: 'PR-A19', case: true, cat: 'profesional', type: 'single', q: 'Pencemaran lingkungan yang disebabkan limbah cair organik berlebihan dapat menyebabkan...', opts: ['Peningkatan oksigen terlarut', 'Penurunan oksigen terlarut akibat eutrofikasi', 'Udara bersih', 'Tidak berdampak'], ans: 1, exp: 'Limbah organik berlebih memicu eutrofikasi dan menurunkan oksigen terlarut.' },
+      { id: 'PR-A20', case: true, cat: 'profesional', type: 'single', q: 'Murid mencampur air dan minyak, keduanya tidak menyatu. Konsep yang tepat adalah...', opts: ['Kelarutan/polaritas', 'Titik didih', 'Gaya gravitasi', 'Energi kinetik'], ans: 0, exp: 'Air polar dan minyak nonpolar sehingga tidak saling larut.' },
+      { id: 'PR-A21', case: true, cat: 'profesional', type: 'single', q: 'Guru menemukan murid beranggapan "massa berubah saat es mencair". Klarifikasi yang tepat adalah...', opts: ['Massa berubah', 'Massa tetap karena perubahan wujud tidak mengubah jumlah zat', 'Massa hilang', 'Massa bertambah'], ans: 1, exp: 'Perubahan wujud tidak mengubah massa (kekekalan massa).' },
+      { id: 'PR-A22', case: true, cat: 'profesional', type: 'single', q: 'Variabel terikat pada percobaan pengaruh cahaya terhadap pertumbuhan adalah...', opts: ['Intensitas cahaya', 'Tinggi tanaman', 'Jenis tanah', 'Suhu ruang'], ans: 1, exp: 'Variabel terikat = hasil yang diukur, yaitu tinggi tanaman.' },
+      { id: 'PR-A23', case: true, cat: 'profesional', type: 'single', q: 'Contoh penerapan konsep tekanan dalam kehidupan adalah...', opts: ['Pisau tajam mudah memotong karena tekanan besar pada area kecil', 'Buku jatuh', 'Air mengalir', 'Lampu menyala'], ans: 0, exp: 'Pisau tajam memperkecil area sehingga tekanan membesar.' },
+      { id: 'PR-A24', cat: 'profesional', type: 'single', q: 'Hakikat IPA sebagai produk dan proses paling tepat diterapkan guru dengan...', opts: ['Hanya memberi teori', 'Melibatkan murid melakukan penyelidikan dan memahami konsep', 'Menghafal rumus', 'Memberi ceramah'], ans: 1, exp: 'IPA sebagai produk dan proses menuntut penyelidikan dan pemahaman konsep.' },
+      { id: 'PR-A25', cat: 'profesional', type: 'single', q: 'Rangkaian listrik di mana komponen disusun berurutan sehingga arus sama disebut...', opts: ['Paralel', 'Seri', 'Campuran', 'Terbuka'], ans: 1, exp: 'Rangkaian seri: arus sama, komponen berurutan.' },
+      { id: 'PR-A26', case: true, cat: 'profesional', type: 'single', q: 'Anda mengajar IPA kelas VIII. Siswa diminta merancang percobaan untuk menguji pengaruh jenis tanah terhadap pertumbuhan tanaman. Manakah rancangan yang PALING tepat?', opts: ['Mengubah jenis tanah, menjaga jumlah air, cahaya, dan jenis tanaman tetap', 'Mengubah semua variabel sekaligus', 'Hanya mengamati tanaman tanpa kontrol', 'Menghafal teori pertumbuhan'], ans: 0, exp: 'Percobaan yang baik memanipulasi satu variabel bebas dan mengontrol variabel lain.' },
+      { id: 'PR-A27', case: true, cat: 'profesional', type: 'complex', q: 'Manakah aktivitas yang mencerminkan HOTS dalam pembelajaran IPA? (Pilih semua yang benar)', opts: ['Siswa menganalisis data percobaan dan menyimpulkan', 'Siswa menghafal rumus tanpa memahami', 'Siswa mengevaluasi dua hipotesis berdasarkan bukti', 'Siswa merancang percobaan baru untuk menguji hipotesis', 'Siswa menyalin laporan teman'], ans: [0, 2, 3], exp: 'HOTS mencakup analisis, evaluasi, dan mencipta. Menghafal dan menyalin bukan HOTS.' },
+      { id: 'PR-A28', case: true, cat: 'profesional', type: 'bs', q: 'Seorang siswa melakukan percobaan pengaruh cahaya terhadap pertumbuhan tanaman. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Intensitas cahaya merupakan variabel bebas.', 'Tinggi tanaman merupakan variabel terikat.', 'Jenis tanah dan jumlah air harus dijaga tetap (variabel kontrol).', 'Mengubah semua variabel sekaligus membuat kesimpulan lebih valid.', 'Mengulang percobaan membantu meningkatkan kepercayaan hasil.'], ans: [true, true, true, false, true], exp: 'Pernyataan 4 salah karena mengubah semua variabel membuat hubungan sebab-akibat tidak dapat disimpulkan.' },
+      { id: 'PR-A29', case: true, cat: 'profesional', type: 'single', q: 'Seorang siswa menyimpulkan bahwa "tanaman tumbuh lebih cepat karena diberi musik" setelah hanya mengamati satu tanaman. Kelemahan utama penalaran siswa adalah...', opts: ['Tidak ada kelemahan', 'Tidak ada kelompok pembanding/kontrol dan pengulangan', 'Terlalu banyak data', 'Menggunakan alat ukur'], ans: 1, exp: 'Kesimpulan valid memerlukan kontrol dan pengulangan untuk mengurangi bias.' },
+      { id: 'PR-A30', case: true, cat: 'profesional', type: 'single', q: 'Anda menemukan siswa beranggapan bahwa "air selalu mendidih pada suhu 100°C di semua tempat". Klarifikasi paling tepat adalah...', opts: ['Anggapan itu selalu benar', 'Titik didih bergantung pada tekanan udara, sehingga berbeda di dataran tinggi', 'Air tidak pernah mendidih', 'Suhu tidak berpengaruh'], ans: 1, exp: 'Titik didih air bergantung tekanan; di dataran tinggi tekanan lebih rendah sehingga titik didih turun.' },
+      { id: 'PR-A31', case: true, cat: 'profesional', type: 'single', q: 'Siswa diminta mengevaluasi dua cara mengurangi pencemaran plastik: daur ulang vs penggunaan bahan biodegradable. Kesimpulan paling tepat adalah...', opts: ['Daur ulang selalu lebih baik', 'Keduanya memiliki kelebihan dan keterbatasan yang perlu dianalisis berdasarkan konteks', 'Tidak ada solusi', 'Biodegradable selalu sempurna'], ans: 1, exp: 'Mengevaluasi solusi berdasarkan konteks dan keterbatasan adalah HOTS (C5).' },
+      { id: 'PR-A32', case: true, cat: 'profesional', type: 'bs', q: 'Seorang siswa merancang percobaan tentang pengaruh suhu terhadap laju reaksi. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Suhu merupakan variabel bebas.', 'Laju reaksi merupakan variabel terikat.', 'Konsentrasi dan volume harus dijaga tetap.', 'Mengubah konsentrasi sekaligus dengan suhu membuat kesimpulan lebih akurat.', 'Pengulangan pengukuran meningkatkan keandalan data.'], ans: [true, true, true, false, true], exp: 'Pernyataan 4 salah karena mengubah dua variabel sekaligus mengacaukan hubungan sebab-akibat.' },
+      { id: 'PR-A33', case: true, cat: 'profesional', type: 'single', q: 'Siswa diminta merancang solusi untuk mengurangi limbah plastik di sekolah. Tugas ini paling melatih kemampuan...', opts: ['Mengingat (C1)', 'Memahami (C2)', 'Mencipta (C6)', 'Menghafal (C1)'], ans: 2, exp: 'Merancang solusi baru termasuk kemampuan mencipta (C6).' },
+      { id: 'PR-A34', case: true, cat: 'profesional', type: 'single', q: 'Anda menemukan siswa beranggapan "massa benda berubah saat dipanaskan". Klarifikasi paling tepat adalah...', opts: ['Massa berubah karena panas', 'Massa tetap; yang berubah adalah volume/dimensi akibat pemuaian', 'Massa hilang', 'Massa bertambah'], ans: 1, exp: 'Pemuaian mengubah volume, bukan massa. Massa tetap (kekekalan massa).' },
+      { id: 'PR-A35', case: true, cat: 'profesional', type: 'complex', q: 'Manakah yang mencerminkan keterampilan proses sains tingkat tinggi? (Pilih semua yang benar)', opts: ['Merumuskan hipotesis berdasarkan pengamatan', 'Menyimpulkan dari data percobaan', 'Menghafal definisi tanpa konteks', 'Mengevaluasi keandalan data', 'Merancang percobaan untuk menguji hipotesis'], ans: [0, 1, 3, 4], exp: 'Keterampilan proses sains tingkat tinggi mencakup merumuskan hipotesis, menyimpulkan, mengevaluasi, dan merancang. Menghafal definisi bukan.' }
+    ];
+
+    var bankKepribadian = [
+      { id: 'K01', case: true, cat: 'kepribadian', type: 'single', q: 'Seorang murid berprestasi rendah meminta nilai tambahan dengan cara yang kurang pantas. Sebagai guru yang berintegritas, tindakan paling tepat adalah...', opts: ['Memberi nilai tambahan agar murid senang', 'Menolak dengan sopan, menjelaskan kriteria penilaian, dan menawarkan kesempatan perbaikan yang sah', 'Membiarkan', 'Memberi nilai tanpa alasan'], ans: 1, exp: 'Integritas berarti menegakkan kriteria secara adil dan menawarkan jalur perbaikan yang sah.' },
+      { id: 'K02', case: true, cat: 'kepribadian', type: 'single', q: 'Guru mengetahui informasi pribadi murid yang sensitif. Tindakan yang mencerminkan etika profesi adalah...', opts: ['Menceritakan ke guru lain sebagai bahan obrolan', 'Menjaga kerahasiaan dan hanya membahas untuk kepentingan belajar dengan pihak berwenang', 'Menyebarkan di media sosial', 'Mengabaikan'], ans: 1, exp: 'Kerahasiaan informasi peserta didik adalah bagian etika profesi guru.' },
+      { id: 'K03', case: true, cat: 'kepribadian', type: 'single', q: 'Seorang guru menyadari dirinya pernah bersikap kurang adil kepada salah satu murid. Tindakan reflektif paling tepat adalah...', opts: ['Mengabaikan', 'Mengakui, meminta maaf, dan memperbaiki sikap', 'Menyalahkan murid', 'Menyembunyikan'], ans: 1, exp: 'Refleksi diri yang baik diikuti pengakuan, permintaan maaf, dan perbaikan.' },
+      { id: 'K04', case: true, cat: 'kepribadian', type: 'single', q: 'Guru menghadapi murid yang sering membantah. Pengendalian diri yang tepat adalah...', opts: ['Membalas dengan emosi', 'Menarik napas, mendengarkan, dan merespons secara tenang serta asertif', 'Mengeluarkan murid', 'Mendiamkan seharian'], ans: 1, exp: 'Pengendalian diri dilakukan dengan tenang, mendengarkan, dan merespons asertif.' },
+      { id: 'K05', case: true, cat: 'kepribadian', type: 'single', q: 'Seorang guru ditawari hadiah oleh orang tua murid agar anaknya naik kelas. Sikap yang tepat adalah...', opts: ['Menerima', 'Menolak dengan sopan dan menjelaskan penilaian berdasarkan kinerja', 'Menerima diam-diam', 'Menunda'], ans: 1, exp: 'Menolak hadiah yang dapat memengaruhi objektivitas adalah wujud integritas dan keadilan.' },
+      { id: 'K06', case: true, cat: 'kepribadian', type: 'single', q: 'Guru menemukan murid yang berbeda agama/budaya diperlakukan berbeda oleh teman. Tindakan guru paling tepat adalah...', opts: ['Membiarkan', 'Menegur, mendidik tentang keberagaman, dan memastikan keadilan bagi semua', 'Memindahkan murid', 'Menyalahkan korban'], ans: 1, exp: 'Guru wajib menegakkan keadilan dan nondiskriminasi serta mendidik keberagaman.' },
+      { id: 'K07', cat: 'kepribadian', type: 'single', q: 'Komitmen guru terhadap profesi paling tercermin ketika...', opts: ['Hanya bekerja saat diawasi', 'Terus belajar, memperbaiki diri, dan bertanggung jawab atas hasil belajar murid', 'Datang terlambat', 'Mengabaikan tugas'], ans: 1, exp: 'Komitmen profesi ditunjukkan melalui pengembangan diri dan tanggung jawab.' },
+      { id: 'K08', case: true, cat: 'kepribadian', type: 'single', q: 'Guru menghadapi dilema: memberi sanksi pada murid yang melanggar, tetapi murid tersebut memiliki kondisi keluarga sulit. Keputusan paling etis adalah...', opts: ['Membebaskan dari sanksi', 'Menerapkan konsekuensi yang adil sambil memberi pendampingan dan empati', 'Memberi sanksi terberat', 'Mengabaikan'], ans: 1, exp: 'Keadilan dan empati dapat berjalan bersama: konsekuensi adil + pendampingan.' },
+      { id: 'K09', case: true, cat: 'kepribadian', type: 'single', q: 'Keteladanan guru paling efektif ditunjukkan melalui...', opts: ['Kata-kata saja', 'Konsistensi perilaku antara ucapan dan tindakan', 'Memberi ceramah', 'Menghafal teori'], ans: 1, exp: 'Keteladanan nyata melalui konsistensi perilaku.' },
+      { id: 'K10', cat: 'kepribadian', type: 'single', q: 'Seorang guru merasa tidak nyaman dengan hasil kerja murid yang berbeda dari harapannya. Tindakan objektif adalah...', opts: ['Menilai berdasarkan suka/tidak suka', 'Menilai berdasarkan kriteria yang telah disepakati dan bukti kinerja', 'Memberi nilai acak', 'Meminta murid lain menilai'], ans: 1, exp: 'Objektivitas menuntut penilaian berbasis kriteria dan bukti.' },
+      { id: 'K11', case: true, cat: 'kepribadian', type: 'single', q: 'Guru menggunakan media sosial dan tanpa sengaja melihat unggahan murid yang melanggar aturan. Tindakan bijak adalah...', opts: ['Mengomentari dengan emosi', 'Menegur secara pribadi dan mendidik tanpa mempermalukan', 'Menyebarkan', 'Mendiamkan'], ans: 1, exp: 'Menegur secara pribadi menjaga martabat murid dan tetap mendidik.' },
+      { id: 'K12', cat: 'kepribadian', type: 'single', q: 'Kemandirian guru tercermin ketika...', opts: ['Menunggu perintah terus', 'Berinisiatif merancang pembelajaran dan mencari solusi', 'Menyalin pekerjaan orang lain', 'Menghindari tanggung jawab'], ans: 1, exp: 'Kemandirian = inisiatif dan tanggung jawab.' },
+      { id: 'K13', cat: 'kepribadian', type: 'complex', q: 'Manakah yang mencerminkan sikap adil terhadap murid? (Pilih semua yang benar)', opts: ['Memberi kesempatan yang sama untuk bertanya', 'Menilai berdasarkan kriteria', 'Membeda-bedakan berdasarkan latar belakang', 'Memberi perlakuan sesuai kebutuhan tanpa diskriminasi'], ans: [0, 1, 3], exp: 'Keadilan mencakup kesempatan setara, kriteria, dan perlakuan sesuai kebutuhan tanpa diskriminasi.' },
+      { id: 'K14', case: true, cat: 'kepribadian', type: 'single', q: 'Guru dihadapkan pada murid yang melakukan kecurangan ujian. Tindakan yang paling mendidik adalah...', opts: ['Membiarkan', 'Menegur, memberi konsekuensi sesuai aturan, dan mendidik tentang kejujuran', 'Mempermalukan di depan kelas', 'Menaikkan nilainya'], ans: 1, exp: 'Tindakan mendidik: konsekuensi sesuai aturan + pendidikan kejujuran.' },
+      { id: 'K15', case: true, cat: 'kepribadian', type: 'single', q: 'Guru menerima kritik dari murid. Sikap reflektif yang tepat adalah...', opts: ['Marah', 'Mendengarkan, mempertimbangkan, dan memperbaiki jika relevan', 'Mengabaikan', 'Membalas'], ans: 1, exp: 'Kritik adalah umpan balik untuk perbaikan bila relevan.' },
+      { id: 'K16', cat: 'kepribadian', type: 'single', q: 'Tanggung jawab guru terhadap hasil belajar murid ditunjukkan dengan...', opts: ['Menyalahkan murid', 'Menganalisis hasil, memperbaiki pembelajaran, dan mendampingi murid', 'Mengurangi tugas', 'Membiarkan'], ans: 1, exp: 'Tanggung jawab diwujudkan melalui analisis dan perbaikan pembelajaran.' },
+      { id: 'K17', cat: 'kepribadian', type: 'single', q: 'Guru yang baik dalam mengambil keputusan etis mempertimbangkan...', opts: ['Keuntungan pribadi', 'Kesejahteraan murid, aturan, dan nilai moral', 'Popularitas', 'Kemudahan'], ans: 1, exp: 'Keputusan etis mempertimbangkan kesejahteraan murid, aturan, dan moral.' },
+      { id: 'K18', cat: 'kepribadian', type: 'single', q: 'Guru menolak memberi nilai berdasarkan kedekatan pribadi. Ini mencerminkan...', opts: ['Objektivitas', 'Favoritisme', 'Ketidakpedulian', 'Emosi'], ans: 0, exp: 'Objektivitas = menilai berdasarkan bukti/kriteria, bukan kedekatan.' },
+      { id: 'K19', case: true, cat: 'kepribadian', type: 'single', q: 'Seorang murid menangis karena masalah keluarga. Respons guru yang tepat adalah...', opts: ['Mengabaikan', 'Mendengarkan dengan empati, menjaga privasi, dan merujuk ke layanan pendukung jika perlu', 'Menceritakan ke teman', 'Memarahi'], ans: 1, exp: 'Empati, privasi, dan rujukan tepat adalah respons etis.' },
+      { id: 'K20', cat: 'kepribadian', type: 'single', q: 'Guru yang menjaga kerahasiaan data murid menunjukkan...', opts: ['Profesionalisme', 'Kelalaian', 'Keterbukaan berlebihan', 'Ketidakpedulian'], ans: 0, exp: 'Menjaga kerahasiaan adalah bagian profesionalisme guru.' },
+      { id: 'K21', case: true, cat: 'kepribadian', type: 'single', q: 'Anda menemukan murid berprestasi rendah menyontek saat ujian. Setelah diselidiki, ia mengaku karena takut gagal dan mendapat tekanan dari orang tua. Sebagai guru yang bijak, tindakan paling tepat adalah...', opts: ['Memberi sanksi sesuai aturan tanpa dialog', 'Menegur, memberi konsekuensi sesuai aturan, dan mendampingi murid untuk memahami pentingnya kejujuran serta berkomunikasi dengan orang tua', 'Membiarkan karena kasihan', 'Menaikkan nilainya agar tidak stres'], ans: 1, exp: 'Keadilan (konsekuensi) dan empati (pendampingan) harus berjalan bersama. Ini mencerminkan pengambilan keputusan etis yang bijak.' },
+      { id: 'K22', case: true, cat: 'kepribadian', type: 'bs', q: 'Anda menghadapi situasi: seorang murid meminta nilai tambahan dengan cara yang kurang pantas. Tentukan Benar atau Salah untuk setiap tindakan berikut.', stmts: ['Memberi nilai tambahan agar murid tidak kecewa.', 'Menolak dengan sopan dan menjelaskan kriteria penilaian.', 'Menawarkan kesempatan perbaikan yang sah.', 'Membiarkan permintaan tersebut tanpa respons.', 'Menjelaskan pentingnya integritas akademik.'], ans: [false, true, true, false, true], exp: 'Tindakan 1 dan 4 tidak mendidik. Menolak sopan, menawarkan perbaikan sah, dan menjelaskan integritas adalah tindakan tepat.' },
+      { id: 'K23', case: true, cat: 'kepribadian', type: 'single', q: 'Anda mengetahui seorang murid mengalami masalah keluarga yang sensitif. Beberapa guru lain membicarakannya di ruang guru. Sikap paling etis adalah...', opts: ['Ikut membicarakan', 'Menjaga kerahasiaan dan mengingatkan rekan untuk tidak membicarakannya', 'Menyebarkan ke media sosial', 'Mengabaikan'], ans: 1, exp: 'Menjaga kerahasiaan dan mengingatkan rekan adalah wujud etika profesi.' }
+    ];
+
+    var bankSosial = [
+      { id: 'S01', cat: 'sosial', type: 'single', q: 'Seorang guru baru mengalami kesulitan mengajar. Tindakan kolaboratif yang tepat adalah...', opts: ['Menyembunyikan masalah', 'Berdiskusi dengan guru senior/berbagi praktik baik dan meminta masukan', 'Menyalahkan murid', 'Mengundurkan diri'], ans: 1, exp: 'Kolaborasi dan berbagi praktik baik membantu pengembangan profesional.' },
+      { id: 'S02', case: true, cat: 'sosial', type: 'single', q: 'Orang tua murid marah karena anaknya mendapat nilai rendah. Komunikasi empatik yang tepat adalah...', opts: ['Membalas dengan emosi', 'Mendengarkan, menjelaskan bukti dan kriteria, serta merancang solusi bersama', 'Menghindar', 'Menyalahkan orang tua'], ans: 1, exp: 'Komunikasi empatik: dengarkan, jelaskan berbasis bukti, dan cari solusi bersama.' },
+      { id: 'S03', case: true, cat: 'sosial', type: 'single', q: 'Dua guru berbeda pendapat tentang strategi pembelajaran. Resolusi konflik yang tepat adalah...', opts: ['Memaksakan pendapat', 'Berdialog mencari solusi terbaik berdasarkan tujuan belajar murid', 'Membiarkan konflik', 'Melapor tanpa dialog'], ans: 1, exp: 'Resolusi konflik melalui dialog dan fokus pada tujuan belajar.' },
+      { id: 'S04', cat: 'sosial', type: 'single', q: 'Guru ingin melibatkan masyarakat dalam pembelajaran. Contoh kegiatan paling tepat adalah...', opts: ['Mengurung murid', 'Mengundang praktisi lokal untuk berbagi pengalaman relevan', 'Menghindari masyarakat', 'Membatasi informasi'], ans: 1, exp: 'Kemitraan dengan masyarakat memperkaya pembelajaran kontekstual.' },
+      { id: 'S05', case: true, cat: 'sosial', type: 'single', q: 'Guru menghadapi kelas dengan murid dari berbagai budaya. Praktik culturally responsive teaching dilakukan dengan...', opts: ['Mengabaikan perbedaan budaya', 'Mengintegrasikan contoh dan nilai budaya murid dalam pembelajaran', 'Menyeragamkan semua', 'Membeda-bedakan'], ans: 1, exp: 'Culturally responsive teaching mengintegrasikan keberagaman budaya murid.' },
+      { id: 'S06', case: true, cat: 'sosial', type: 'single', q: 'Murid melaporkan bahwa ia merasa dikucilkan. Respons guru yang tepat adalah...', opts: ['Mengabaikan', 'Mendengarkan, menyelidiki, dan mengambil tindakan untuk menciptakan iklim inklusif', 'Menyalahkan murid', 'Membiarkan'], ans: 1, exp: 'Guru wajib menciptakan iklim inklusif dan menindaklanjuti laporan.' },
+      { id: 'S07', cat: 'sosial', type: 'single', q: 'Komunikasi guru dengan sesama guru yang profesional ditunjukkan dengan...', opts: ['Menyebarkan gosip', 'Berkolaborasi, berbagi sumber daya, dan saling menghargai', 'Bersaing tidak sehat', 'Menutup diri'], ans: 1, exp: 'Profesionalisme ditunjukkan melalui kolaborasi dan saling menghargai.' },
+      { id: 'S08', cat: 'sosial', type: 'single', q: 'Guru menerima murid dengan latar belakang berbeda. Sikap yang tepat adalah...', opts: ['Menyeragamkan', 'Menghargai keberagaman dan memastikan kesempatan setara', 'Memisahkan', 'Membedakan'], ans: 1, exp: 'Menghargai keberagaman dan kesetaraan kesempatan.' },
+      { id: 'S09', cat: 'sosial', type: 'single', q: 'Kerja sama tim guru paling efektif bila...', opts: ['Ada tujuan bersama, pembagian peran, dan komunikasi terbuka', 'Satu orang mengerjakan semua', 'Tidak ada komunikasi', 'Bersaing'], ans: 0, exp: 'Tujuan bersama, peran jelas, dan komunikasi terbuka adalah kunci kerja sama.' },
+      { id: 'S10', cat: 'sosial', type: 'single', q: 'Komunikasi dengan peserta didik yang efektif adalah...', opts: ['Satu arah', 'Dua arah, terbuka, dan menghargai', 'Penuh ancaman', 'Mengabaikan'], ans: 1, exp: 'Komunikasi efektif bersifat dua arah dan menghargai.' },
+      { id: 'S11', case: true, cat: 'sosial', type: 'single', q: 'Guru mendengar murid menggunakan bahasa daerah di kelas. Sikap yang tepat adalah...', opts: ['Melarang total', 'Menghargai sebagai kekayaan budaya sambil tetap mengembangkan kompetensi bahasa yang dibutuhkan', 'Menghukum', 'Mengabaikan'], ans: 1, exp: 'Menghargai keberagaman bahasa sambil mengembangkan kompetensi yang diperlukan.' },
+      { id: 'S12', case: true, cat: 'sosial', type: 'single', q: 'Guru menghadapi perbedaan pendapat dengan orang tua mengenai metode belajar. Langkah terbaik adalah...', opts: ['Memaksakan kehendak', 'Berdialog mencari titik temu yang terbaik untuk murid', 'Menghindar', 'Mengabaikan'], ans: 1, exp: 'Dialog untuk mencari solusi terbaik bagi murid.' },
+      { id: 'S13', cat: 'sosial', type: 'single', q: 'Guru baru bergabung di sekolah. Tindakan sosial yang tepat adalah...', opts: ['Menutup diri', 'Berkenalan, belajar budaya sekolah, dan berkolaborasi', 'Mengkritik tanpa memahami', 'Menyendiri'], ans: 1, exp: 'Adaptasi sosial dilakukan dengan berkenalan dan berkolaborasi.' },
+      { id: 'S14', cat: 'sosial', type: 'single', q: 'Inklusivitas di sekolah berarti...', opts: ['Hanya untuk murid tertentu', 'Semua murid, termasuk yang berkebutuhan khusus, mendapat kesempatan belajar yang setara', 'Memisahkan', 'Mengabaikan'], ans: 1, exp: 'Inklusivitas = kesempatan setara bagi semua murid.' },
+      { id: 'S15', case: true, cat: 'sosial', type: 'single', q: 'Guru memediasi konflik antar murid. Langkah yang tepat adalah...', opts: ['Memihak', 'Mendengarkan kedua pihak, mencari akar masalah, dan menyepakati solusi', 'Menghukum semua', 'Mengabaikan'], ans: 1, exp: 'Mediasi adil: dengarkan, cari akar masalah, sepakati solusi.' },
+      { id: 'S16', case: true, cat: 'sosial', type: 'single', q: 'Guru berkomunikasi dengan orang tua tentang kemajuan anak. Praktik terbaik adalah...', opts: ['Hanya melapor saat ada masalah', 'Berkomunikasi rutin, positif, dan konstruktif', 'Menghindari', 'Menyalahkan'], ans: 1, exp: 'Komunikasi rutin dan konstruktif membangun kemitraan.' },
+      { id: 'S17', cat: 'sosial', type: 'single', q: 'Guru diajak berkolaborasi lintas mata pelajaran. Sikap yang tepat adalah...', opts: ['Menolak', 'Terbuka dan berkontribusi untuk pembelajaran terpadu', 'Mengabaikan', 'Bersaing'], ans: 1, exp: 'Kolaborasi lintas mapel memperkaya pembelajaran.' },
+      { id: 'S18', cat: 'sosial', type: 'single', q: 'Guru melihat rekan guru membutuhkan bantuan. Tindakan sosial yang tepat adalah...', opts: ['Membiarkan', 'Menawarkan bantuan sesuai kemampuan', 'Menyebarkan', 'Menutup diri'], ans: 1, exp: 'Kepedulian dan bantuan sesuai kemampuan adalah wujud sosial yang baik.' },
+      { id: 'S19', cat: 'sosial', type: 'single', q: 'Guru berpartisipasi dalam kegiatan masyarakat sekitar sekolah. Manfaatnya adalah...', opts: ['Membuang waktu', 'Membangun hubungan baik dan mendukung pembelajaran kontekstual', 'Mengganggu', 'Tidak relevan'], ans: 1, exp: 'Partisipasi masyarakat membangun hubungan dan mendukung pembelajaran.' },
+      { id: 'S20', cat: 'sosial', type: 'single', q: 'Komunikasi empatik ditandai dengan...', opts: ['Mendengar aktif dan memahami perasaan pihak lain', 'Mendominasi', 'Mengabaikan', 'Menghakimi'], ans: 0, exp: 'Empati ditandai dengan mendengar aktif dan memahami.' },
+      { id: 'S21', case: true, cat: 'sosial', type: 'single', q: 'Orang tua murid marah karena anaknya mendapat nilai rendah dan menuduh guru tidak adil. Sebagai guru, tindakan paling tepat adalah...', opts: ['Membalas dengan emosi', 'Mendengarkan keluhan, menjelaskan bukti dan kriteria penilaian, serta merancang solusi bersama', 'Menghindar dari orang tua', 'Menyalahkan orang tua'], ans: 1, exp: 'Komunikasi empatik: dengarkan, jelaskan berbasis bukti, dan cari solusi bersama.' },
+      { id: 'S22', case: true, cat: 'sosial', type: 'bs', q: 'Anda menghadapi konflik antara dua murid yang saling tuduh. Tentukan Benar atau Salah untuk setiap tindakan berikut.', stmts: ['Memihak salah satu murid tanpa mendengar keduanya.', 'Mendengarkan kedua pihak secara adil.', 'Mencari akar masalah, bukan hanya gejalanya.', 'Menghukum keduanya tanpa dialog.', 'Menyepakati solusi bersama kedua pihak.'], ans: [false, true, true, false, true], exp: 'Mediasi yang adil: dengarkan kedua pihak, cari akar masalah, dan sepakati solusi. Memihak atau menghukum tanpa dialog bukan tindakan tepat.' },
+      { id: 'S23', case: true, cat: 'sosial', type: 'single', q: 'Anda mengajar di kelas dengan murid dari berbagai latar belakang budaya. Beberapa murid merasa budayanya tidak terwakili. Tindakan paling tepat adalah...', opts: ['Mengabaikan perbedaan', 'Mengintegrasikan contoh dan nilai budaya murid dalam pembelajaran serta menciptakan iklim inklusif', 'Menyeragamkan semua murid', 'Membeda-bedakan'], ans: 1, exp: 'Culturally responsive teaching mengintegrasikan keberagaman budaya dan menciptakan iklim inklusif.' }
+    ];
+
+    var bankTeori = [
+      { id: 'T01', cat: 'teori', type: 'single', q: 'Guru memberi penguatan (reward) setiap kali murid menjawab benar sehingga perilaku menjawab meningkat. Teori yang paling sesuai adalah...', opts: ['Behaviorisme - Skinner', 'Konstruktivisme - Piaget', 'Humanistik - Maslow', 'Kognitivisme - Bruner'], ans: 0, exp: 'Penguatan (reinforcement) adalah inti behaviorisme Skinner.' },
+      { id: 'T02', cat: 'teori', type: 'single', q: 'Guru memberikan pengalaman konkret, lalu gambar, lalu simbol. Representasi enaktif, ikonik, simbolik adalah gagasan...', opts: ['Bruner', 'Pavlov', 'Skinner', 'Gardner'], ans: 0, exp: 'Bruner mengemukakan tiga representasi: enaktif, ikonik, simbolik.' },
+      { id: 'T03', cat: 'teori', type: 'single', q: 'Murid belajar dengan mengaitkan informasi baru pada pengetahuan yang sudah ada sehingga bermakna. Teori ini dikemukakan oleh...', opts: ['Ausubel', 'Thorndike', 'Watson', 'Kohlberg'], ans: 0, exp: 'Ausubel mengemukakan meaningful learning.' },
+      { id: 'T04', cat: 'teori', type: 'single', q: 'Murid belajar dengan mengamati model dan meniru perilakunya. Teori yang paling sesuai adalah...', opts: ['Bandura - social learning', 'Skinner - operant', 'Pavlov - klasik', 'Maslow - humanistik'], ans: 0, exp: 'Bandura menekankan modeling/observational learning.' },
+      { id: 'T05', cat: 'teori', type: 'single', q: 'Guru merancang pembelajaran yang diawali pengalaman langsung, kemudian refleksi, konseptualisasi, dan eksperimen. Model ini dikemukakan...', opts: ['Kolb - experiential learning', 'Bloom - taksonomi', 'Gagne - instruksi', 'Pavlov'], ans: 0, exp: 'Kolb mengemukakan siklus experiential learning.' },
+      { id: 'T06', cat: 'teori', type: 'single', q: 'Kebutuhan fisiologis, rasa aman, sosial, penghargaan, dan aktualisasi diri adalah hierarki yang dikemukakan...', opts: ['Maslow', 'Rogers', 'Piaget', 'Vygotsky'], ans: 0, exp: 'Maslow mengemukakan hierarki kebutuhan.' },
+      { id: 'T07', cat: 'teori', type: 'single', q: 'Guru menghargai potensi unik murid dan menciptakan iklim yang mendukung pertumbuhan pribadi. Teori yang paling sesuai...', opts: ['Rogers - humanistik', 'Skinner', 'Pavlov', 'Thorndike'], ans: 0, exp: 'Rogers menekankan pembelajaran berpusat pada pribadi dan pertumbuhan.' },
+      { id: 'T08', cat: 'teori', type: 'single', q: 'Murid mampu mengerjakan tugas jika dibantu, tetapi belum mandiri. Teori yang menekankan bantuan ini adalah...', opts: ['Vygotsky - ZPD', 'Pavlov', 'Skinner', 'Watson'], ans: 0, exp: 'Vygotsky menekankan ZPD dan scaffolding.' },
+      { id: 'T09', cat: 'teori', type: 'single', q: 'Guru menggunakan pertanyaan pemandu dan murid menemukan sendiri konsep. Model yang paling sesuai...', opts: ['Discovery learning - Bruner', 'Behaviorisme', 'Drill', 'Ceramah'], ans: 0, exp: 'Discovery learning dikaitkan dengan Bruner.' },
+      { id: 'T10', cat: 'teori', type: 'single', q: 'Taksonomi tujuan pembelajaran dari mengingat hingga mencipta dikemukakan oleh...', opts: ['Benjamin Bloom', 'Howard Gardner', 'David Kolb', 'Carl Rogers'], ans: 0, exp: 'Taksonomi Bloom.' },
+      { id: 'T11', cat: 'teori', type: 'single', q: 'Guru menyadari murid memiliki kecenderungan kecerdasan berbeda (linguistik, logis, kinestetik, dll). Teori ini dikemukakan...', opts: ['Howard Gardner', 'Skinner', 'Pavlov', 'Ausubel'], ans: 0, exp: 'Multiple Intelligences - Gardner.' },
+      { id: 'T12', cat: 'teori', type: 'single', q: 'Guru menyesuaikan konten, proses, dan produk berdasarkan kesiapan murid. Ini adalah gagasan...', opts: ['Carol Ann Tomlinson - differentiated instruction', 'Bloom', 'Bandura', 'Habermas'], ans: 0, exp: 'Tomlinson mengembangkan differentiated instruction.' },
+      { id: 'T13', cat: 'teori', type: 'single', q: 'Pembelajaran yang semakin mandiri dan ditentukan murid sendiri disebut...', opts: ['Heutagogy', 'Pedagogy', 'Andragogy', 'Behaviorisme'], ans: 0, exp: 'Heutagogy = self-determined learning.' },
+      { id: 'T14', cat: 'teori', type: 'single', q: 'Guru mengaitkan pembelajaran dengan pengalaman nyata dan menekankan belajar sambil melakukan. Tokoh progresivisme yang relevan adalah...', opts: ['John Dewey', 'Skinner', 'Pavlov', 'Bloom'], ans: 0, exp: 'Dewey - learning by doing, progresivisme.' },
+      { id: 'T15', cat: 'teori', type: 'single', q: 'Pembelajaran yang menekankan koneksi antar sumber informasi dan jaringan digital paling sesuai dengan...', opts: ['Connectivism - Siemens & Downes', 'Behaviorisme', 'Humanistik', 'Kognitivisme'], ans: 0, exp: 'Connectivism - Siemens & Downes.' },
+      { id: 'T16', cat: 'teori', type: 'single', q: 'Guru memberikan advance organizer sebelum materi baru agar murid mengaitkan informasi. Ini gagasan...', opts: ['Ausubel', 'Vygotsky', 'Piaget', 'Skinner'], ans: 0, exp: 'Advance organizer adalah gagasan Ausubel.' },
+      { id: 'T17', cat: 'teori', type: 'single', q: 'Guru mengajak murid berpikir kritis tentang struktur kekuasaan dan membebaskan diri dari belenggu. Jenis minat ini dalam Habermas disebut...', opts: ['Emancipatory interest', 'Technical interest', 'Practical interest', 'Behavioral interest'], ans: 0, exp: 'Habermas: technical, practical, emancipatory. Yang membebaskan = emancipatory.' },
+      { id: 'T18', cat: 'teori', type: 'single', q: 'Murid mengembangkan skema baru setelah mengalami konflik kognitif. Tokoh konstruktivisme yang menekankan asimilasi dan akomodasi adalah...', opts: ['Jean Piaget', 'Pavlov', 'Skinner', 'Watson'], ans: 0, exp: 'Piaget - asimilasi, akomodasi, ekuilibrasi.' },
+      { id: 'T19', cat: 'teori', type: 'single', q: 'Guru mengaitkan pelajaran dengan pengalaman langsung siswa dan refleksi. Ini paling dekat dengan...', opts: ['Experiential learning Kolb', 'Klasik Pavlov', 'Operan Skinner', 'Taksonomi Bloom'], ans: 0, exp: 'Siklus pengalaman-refleksi-konsep-eksperimen = Kolb.' },
+      { id: 'T20', cat: 'teori', type: 'single', q: 'Murid meniru perilaku guru yang menjadi model. Ini termasuk...', opts: ['Observational learning Bandura', 'Klasik Pavlov', 'Operan Skinner', 'Kognitif Ausubel'], ans: 0, exp: 'Observational learning - Bandura.' },
+      { id: 'T21', cat: 'teori', type: 'single', q: 'Guru memberikan hukuman agar perilaku tidak diulang. Konsep ini dalam teori Skinner disebut...', opts: ['Punishment', 'Reinforcement positif', 'Shaping', 'Extinction'], ans: 0, exp: 'Punishment bertujuan mengurangi perilaku.' },
+      { id: 'T22', cat: 'teori', type: 'single', q: 'Murid mengeluarkan respons karena ada stimulus yang diasosiasikan. Ini adalah...', opts: ['Conditioning klasik - Pavlov', 'Operan - Skinner', 'Sosial - Bandura', 'Humanistik - Rogers'], ans: 0, exp: 'Pavlov - classical conditioning.' },
+      { id: 'T23', cat: 'teori', type: 'single', q: 'Hukum efek (law of effect) yang menyatakan perilaku diikuti kepuasan cenderung diulang dikemukakan oleh...', opts: ['Edward Thorndike', 'Skinner', 'Pavlov', 'Watson'], ans: 0, exp: 'Thorndike - law of effect.' },
+      { id: 'T24', cat: 'teori', type: 'single', q: 'Guru menyusun materi dari sederhana ke kompleks dan memberi bantuan bertahap. Ini paling sesuai dengan...', opts: ['Gagne - instruksi bertahap', 'Skinner', 'Maslow', 'Gardner'], ans: 0, exp: 'Gagne mengemukakan kondisi dan hierarki belajar serta instruksi bertahap.' },
+      { id: 'T25', cat: 'teori', type: 'single', q: 'Guru mengelompokkan murid berdasarkan kecenderungan kecerdasan dan memberi aktivitas berbeda. Ini menerapkan teori...', opts: ['Multiple Intelligences Gardner', 'Behaviorisme', 'Pavlov', 'Thorndike'], ans: 0, exp: 'Gardner - kecerdasan majemuk.' },
+      { id: 'T26', cat: 'teori', type: 'single', q: 'Guru membiasakan murid mengelola belajar sendiri dan menetapkan tujuan. Ini mendekati...', opts: ['Heutagogy/self-determined', 'Klasik', 'Operan', 'Taksonomi'], ans: 0, exp: 'Heutagogy menekankan belajar mandiri yang ditentukan murid.' },
+      { id: 'T27', cat: 'teori', type: 'single', q: 'Murid belajar dengan menghubungkan informasi baru dengan struktur kognitif yang sudah dimiliki. Ini adalah...', opts: ['Meaningful learning Ausubel', 'Rote learning', 'Klasik', 'Operan'], ans: 0, exp: 'Meaningful learning - Ausubel.' },
+      { id: 'T28', cat: 'teori', type: 'single', q: 'Guru menekankan pengalaman langsung dan partisipasi aktif dalam masyarakat. Tokoh yang paling relevan adalah...', opts: ['John Dewey', 'Skinner', 'Pavlov', 'Bloom'], ans: 0, exp: 'Dewey - pengalaman dan demokrasi pendidikan.' },
+      { id: 'T29', cat: 'teori', type: 'single', q: 'Guru menggunakan representasi enaktif (gerak), ikonik (gambar), simbolik (kata). Ini gagasan...', opts: ['Bruner', 'Skinner', 'Pavlov', 'Ausubel'], ans: 0, exp: 'Bruner - tiga representasi.' },
+      { id: 'T30', cat: 'teori', type: 'single', q: 'Murid belajar melalui pengalaman, lalu merefleksikan, mengonseptualisasi, dan menerapkan. Ini model...', opts: ['Kolb - experiential learning', 'Bloom', 'Gardner', 'Habermas'], ans: 0, exp: 'Kolb - experiential learning.' },
+      { id: 'T31', case: true, cat: 'teori', type: 'single', q: 'Seorang siswa mampu menyelesaikan soal jika dibantu, tetapi belum mandiri. Berdasarkan teori Vygotsky, zona ini disebut...', opts: ['Zona perkembangan aktual', 'Zona perkembangan proksimal (ZPD)', 'Tahap operasional formal', 'Tahap praoperasional'], ans: 1, exp: 'ZPD adalah jarak antara kemampuan aktual dan potensial dengan bantuan.' },
+      { id: 'T32', case: true, cat: 'teori', type: 'complex', q: 'Manakah yang mencerminkan penerapan teori konstruktivisme dalam pembelajaran? (Pilih semua yang benar)', opts: ['Siswa mengonstruksi pengetahuan dari pengalaman', 'Guru hanya memberi ceramah satu arah', 'Siswa mengaitkan informasi baru dengan pengetahuan lama', 'Guru memfasilitasi diskusi dan refleksi', 'Siswa menghafal tanpa memahami'], ans: [0, 2, 3], exp: 'Konstruktivisme menekankan konstruksi pengetahuan, kaitan dengan pengetahuan lama, dan fasilitasi diskusi/refleksi.' },
+      { id: 'T33', case: true, cat: 'teori', type: 'single', q: 'Seorang guru ingin menerapkan teori behaviorisme. Manakah praktik yang paling sesuai?', opts: ['Memberi penguatan segera atas perilaku belajar yang diharapkan', 'Membiarkan siswa belajar tanpa umpan balik', 'Hanya memberi ceramah', 'Tidak memberi konsekuensi'], ans: 0, exp: 'Behaviorisme menekankan penguatan (reinforcement) atas perilaku yang diharapkan.' }
+    ];
+
+    var bankKurikulum = [
+      { id: 'Ku01', cat: 'kurikulum', type: 'single', q: 'Guru merancang pembelajaran dimulai dengan menentukan tujuan, bukti ketercapaian, lalu kegiatan. Pendekatan ini disebut...', opts: ['Backward design/UbD', 'Drill', 'Ceramah', 'Hafalan'], ans: 0, exp: 'Backward design/UbD memulai dari tujuan dan bukti, lalu kegiatan.' },
+      { id: 'Ku02', cat: 'kurikulum', type: 'single', q: 'Guru memastikan tujuan, asesmen, dan kegiatan selaras. Prinsip ini disebut...', opts: ['Alignment', 'Randomisasi', 'Hafalan', 'Ceramah'], ans: 0, exp: 'Alignment = keselarasan tujuan-asesmen-kegiatan.' },
+      { id: 'Ku03', case: true, cat: 'kurikulum', type: 'single', q: 'Prinsip pembelajaran mendalam yang menekankan kesadaran murid akan proses belajar adalah...', opts: ['Berkesadaran', 'Bermakna', 'Menggembirakan', 'Hafalan'], ans: 0, exp: 'Pembelajaran mendalam: berkesadaran, bermakna, menggembirakan.' },
+      { id: 'Ku04', cat: 'kurikulum', type: 'single', q: 'Pengalaman belajar dalam pembelajaran mendalam meliputi...', opts: ['Memahami, mengaplikasi, merefleksi', 'Menghafal, menyalin, mengulang', 'Mendengar, mencatat, diam', 'Membaca, menghafal, ujian'], ans: 0, exp: 'Memahami, mengaplikasi, merefleksi.' },
+      { id: 'Ku05', cat: 'kurikulum', type: 'single', q: 'Profil lulusan yang mencakup dimensi keimanan, kewargaan, penalaran kritis, kreativitas, kolaborasi, kemandirian, kesehatan, komunikasi dikenal sebagai...', opts: ['8 dimensi profil lulusan', 'Taksonomi Bloom', 'Teori Maslow', 'Hirarki kebutuhan'], ans: 0, exp: '8 dimensi profil lulusan (Profil Pelajar Pancasila).' },
+      { id: 'Ku06', cat: 'kurikulum', type: 'single', q: 'Diferensiasi konten berarti...', opts: ['Membedakan materi/isi yang dipelajari sesuai kesiapan', 'Membedakan cara belajar', 'Membedakan produk hasil', 'Membedakan penilaian'], ans: 0, exp: 'Diferensiasi konten = variasi materi.' },
+      { id: 'Ku07', cat: 'kurikulum', type: 'single', q: 'Diferensiasi proses berarti...', opts: ['Variasi cara/metode murid belajar', 'Variasi materi', 'Variasi produk', 'Variasi penilaian'], ans: 0, exp: 'Diferensiasi proses = variasi cara belajar.' },
+      { id: 'Ku08', cat: 'kurikulum', type: 'single', q: 'Diferensiasi produk berarti...', opts: ['Variasi bentuk hasil karya', 'Variasi materi', 'Variasi cara', 'Variasi penilaian'], ans: 0, exp: 'Diferensiasi produk = variasi hasil/kinerja.' },
+      { id: 'Ku09', case: true, cat: 'kurikulum', type: 'single', q: 'Model pembelajaran yang berpusat pada proyek nyata dan menghasilkan produk disebut...', opts: ['Project Based Learning', 'Problem Based Learning', 'Ceramah', 'Drill'], ans: 0, exp: 'PjBL - Project Based Learning.' },
+      { id: 'Ku10', cat: 'kurikulum', type: 'single', q: 'Model pembelajaran yang berpusat pada pemecahan masalah kontekstual disebut...', opts: ['Problem Based Learning', 'Project Based Learning', 'Ceramah', 'Hafalan'], ans: 0, exp: 'PBL - Problem Based Learning.' },
+      { id: 'Ku11', case: true, cat: 'kurikulum', type: 'single', q: 'Perbedaan utama PjBL dan PBL adalah...', opts: ['PjBL menekankan produk/proyek, PBL menekankan proses pemecahan masalah', 'Keduanya sama', 'PBL selalu menghasilkan produk', 'PjBL tanpa masalah'], ans: 0, exp: 'PjBL fokus produk/proyek; PBL fokus proses pemecahan masalah.' },
+      { id: 'Ku12', cat: 'kurikulum', type: 'single', q: 'Pembelajaran yang diawali pertanyaan dan penyelidikan murid disebut...', opts: ['Inquiry learning', 'Drill', 'Ceramah', 'Hafalan'], ans: 0, exp: 'Inquiry learning berbasis pertanyaan dan penyelidikan.' },
+      { id: 'Ku13', cat: 'kurikulum', type: 'single', q: 'Model yang menekankan murid menemukan konsep sendiri disebut...', opts: ['Discovery learning', 'Ceramah', 'Drill', 'Hafalan'], ans: 0, exp: 'Discovery learning - penemuan konsep.' },
+      { id: 'Ku14', cat: 'kurikulum', type: 'single', q: 'Pembelajaran yang mengaitkan materi dengan situasi nyata disebut...', opts: ['Contextual Teaching and Learning', 'Drill', 'Hafalan', 'Ceramah'], ans: 0, exp: 'CTL - pembelajaran kontekstual.' },
+      { id: 'Ku15', cat: 'kurikulum', type: 'single', q: 'Asesmen di awal pembelajaran untuk memetakan kemampuan disebut...', opts: ['Diagnostik', 'Formatif', 'Sumatif', 'Autentik'], ans: 0, exp: 'Asesmen diagnostik di awal.' },
+      { id: 'Ku16', cat: 'kurikulum', type: 'single', q: 'Asesmen selama proses untuk umpan balik disebut...', opts: ['Formatif', 'Sumatif', 'Diagnostik', 'Ujian akhir'], ans: 0, exp: 'Formatif = selama proses, umpan balik.' },
+      { id: 'Ku17', cat: 'kurikulum', type: 'single', q: 'Asesmen di akhir untuk mengukur ketercapaian disebut...', opts: ['Sumatif', 'Formatif', 'Diagnostik', 'Autentik'], ans: 0, exp: 'Sumatif = akhir pembelajaran.' },
+      { id: 'Ku18', cat: 'kurikulum', type: 'single', q: 'Soal yang menuntut analisis, evaluasi, dan mencipta termasuk...', opts: ['HOTS', 'LOTS', 'Hafalan', 'Prosedural rutin'], ans: 0, exp: 'HOTS = higher order thinking skills.' },
+      { id: 'Ku19', cat: 'kurikulum', type: 'single', q: 'Situational Judgement Test (SJT) mengukur...', opts: ['Pengambilan keputusan dalam situasi nyata', 'Hafalan', 'Kecepatan', 'Kemampuan menyalin'], ans: 0, exp: 'SJT mengukur judgment dalam situasi.' },
+      { id: 'Ku20', cat: 'kurikulum', type: 'single', q: 'Guru melakukan refleksi setelah pembelajaran untuk perbaikan. Ini adalah...', opts: ['Refleksi guru', 'Asesmen sumatif', 'Hafalan', 'Ceramah'], ans: 0, exp: 'Refleksi guru untuk perbaikan.' },
+      { id: 'Ku21', cat: 'kurikulum', type: 'single', q: 'Kemampuan membaca, menulis, dan memahami informasi disebut...', opts: ['Literasi', 'Numerasi', 'Hafalan', 'Motorik'], ans: 0, exp: 'Literasi.' },
+      { id: 'Ku22', cat: 'kurikulum', type: 'single', q: 'Kemampuan mengolah angka dan data disebut...', opts: ['Numerasi', 'Literasi', 'Hafalan', 'Motorik'], ans: 0, exp: 'Numerasi.' },
+      { id: 'Ku23', cat: 'kurikulum', type: 'single', q: 'Kerangka pengetahuan guru tentang integrasi teknologi dalam pembelajaran disebut...', opts: ['TPACK', 'PCK', 'Bloom', 'Maslow'], ans: 0, exp: 'TPACK - Technological Pedagogical Content Knowledge.' },
+      { id: 'Ku24', cat: 'kurikulum', type: 'single', q: 'Pengetahuan guru tentang cara mengajarkan konten tertentu disebut...', opts: ['PCK', 'TPACK', 'Bloom', 'Maslow'], ans: 0, exp: 'PCK - Pedagogical Content Knowledge.' },
+      { id: 'Ku25', cat: 'kurikulum', type: 'single', q: 'Guru merancang asesmen yang menuntut kinerja nyata. Ini adalah...', opts: ['Asesmen autentik', 'Asesmen hafalan', 'Kuis', 'Ujian lisan'], ans: 0, exp: 'Asesmen autentik menilai kinerja nyata.' },
+      { id: 'Ku26', cat: 'kurikulum', type: 'complex', q: 'Manakah yang termasuk prinsip pembelajaran mendalam? (Pilih semua yang benar)', opts: ['Berkesadaran', 'Bermakna', 'Menggembirakan', 'Menghafal tanpa memahami'], ans: [0, 1, 2], exp: 'Tiga prinsip: berkesadaran, bermakna, menggembirakan.' },
+      { id: 'Ku27', case: true, cat: 'kurikulum', type: 'single', q: 'Guru memulai pembelajaran dengan pertanyaan pemandu dan murid menyelidiki. Model ini adalah...', opts: ['Inquiry', 'Ceramah', 'Drill', 'Hafalan'], ans: 0, exp: 'Inquiry learning.' },
+      { id: 'Ku28', case: true, cat: 'kurikulum', type: 'single', q: 'Guru merancang proyek lintas mapel untuk menyelesaikan masalah lingkungan. Model yang paling sesuai...', opts: ['Project Based Learning', 'Drill', 'Ceramah', 'Hafalan'], ans: 0, exp: 'PjBL untuk proyek nyata.' },
+      { id: 'Ku29', cat: 'kurikulum', type: 'single', q: 'Guru ingin murid mengaitkan materi dengan pengalaman sehari-hari. Pendekatan yang tepat...', opts: ['CTL', 'Hafalan', 'Drill', 'Ceramah'], ans: 0, exp: 'Contextual Teaching and Learning.' },
+      { id: 'Ku30', cat: 'kurikulum', type: 'single', q: 'Dalam UbD, langkah pertama adalah...', opts: ['Menentukan tujuan pembelajaran', 'Menentukan kegiatan', 'Menilai', 'Membuat soal'], ans: 0, exp: 'Backward design dimulai dari tujuan.' },
+      { id: 'Ku31', case: true, cat: 'kurikulum', type: 'single', q: 'Anda ingin menilai kemampuan computational thinking siswa melalui proyek sistem perpustakaan. Instrumen asesmen manakah yang PALING autentik dan mencakup keempat fondasi CT?', opts: ['Tes pilihan ganda 50 soal tentang definisi CT', 'Rubrik proyek yang menilai: pemecahan modul (dekomposisi), identifikasi pola data, model entitas-relasi (abstraksi), dan pseudocode alur (algoritma)', 'Ujian lisan hafalan istilah CT', 'Kuis singkat di akhir pertemuan'], ans: 1, exp: 'Asesmen autentik berbasis rubrik yang memetakan tiap indikator CT paling tepat mengukur keempat fondasi secara valid.' },
+      { id: 'Ku32', case: true, cat: 'kurikulum', type: 'complex', q: 'Anda merancang asesmen proyek untuk topik jaringan komputer. Manakah prinsip yang HARUS diperhatikan? (Pilih semua yang benar)', opts: ['Rubrik memuat indikator yang jelas dan terukur', 'Asesmen mencakup proses dan produk', 'Hanya menilai hasil akhir tanpa proses', 'Memberi kesempatan umpan balik dan revisi', 'Membandingkan siswa satu dengan yang lain sebagai dasar nilai'], ans: [0, 1, 3], exp: 'Asesmen proyek yang baik: rubrik jelas, menilai proses+produk, dan memberi umpan balik/revisi. Menilai hanya hasil akhir atau membandingkan antar siswa bukan prinsip yang tepat.' },
+      { id: 'Ku33', case: true, cat: 'kurikulum', type: 'bs', q: 'Seorang guru merancang asesmen proyek sistem informasi perpustakaan. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Tujuan pembelajaran dan indikator asesmen harus selaras (alignment).', 'Rubrik sebaiknya dibuat setelah siswa mengumpulkan proyek agar lebih adil.', 'Asesmen autentik menilai kinerja nyata, bukan sekadar hafalan.', 'Umpan balik formatif selama proyek membantu siswa memperbaiki karya.', 'Nilai akhir proyek sebaiknya hanya berasal dari estetika tampilan.'], ans: [true, false, true, true, false], exp: 'Rubrik sebaiknya disusun SEBELUM proyek (2 salah), dan nilai tidak boleh hanya dari estetika (5 salah). Alignment, autentik, dan umpan balik formatif benar.' },
+      { id: 'Ku34', case: true, cat: 'kurikulum', type: 'single', q: 'Seorang guru ingin menilai kemampuan siswa mencipta solusi (C6) pada topik basis data. Tugas asesmen paling tepat adalah...', opts: ['Meminta siswa menghafal perintah SQL', 'Meminta siswa merancang skema basis data sederhana untuk kasus nyata dan menjelaskan alasannya', 'Meminta siswa menyalin contoh skema', 'Kuis tebak istilah'], ans: 1, exp: 'Mencipta (C6) ditunjukkan melalui merancang skema baru disertai penalaran, bukan menghafal atau menyalin.' },
+      { id: 'Ku35', case: true, cat: 'kurikulum', type: 'single', q: 'Dua guru berbeda pendapat tentang instrumen asesmen proyek. Guru A ingin tes pilihan ganda, Guru B ingin rubrik proyek. Keputusan paling tepat berdasarkan prinsip asesmen autentik adalah...', opts: ['Selalu memilih tes pilihan ganda karena mudah dinilai', 'Memilih instrumen yang paling selaras dengan tujuan pembelajaran dan kompetensi yang diukur', 'Menggabungkan keduanya tanpa pertimbangan', 'Memilih yang paling disukai siswa'], ans: 1, exp: 'Instrumen asesmen harus selaras (alignment) dengan tujuan dan kompetensi yang diukur, bukan dipilih karena kemudahan.' },
+      { id: 'Ku36', cat: 'kurikulum', type: 'complex', q: 'Manakah pernyataan yang mencerminkan asesmen HOTS? (Pilih semua yang benar)', opts: ['Menuntut siswa menganalisis kasus nyata', 'Menuntut siswa mengevaluasi solusi dan memilih yang terbaik', 'Hanya meminta siswa mengingat definisi', 'Menuntut siswa merancang solusi baru', 'Meminta siswa menyalin jawaban teman'], ans: [0, 1, 3], exp: 'HOTS menekankan analisis, evaluasi, dan mencipta (C4-C6), bukan mengingat atau menyalin.' },
+      { id: 'Ku37', case: true, cat: 'kurikulum', type: 'bs', q: 'Anda merancang asesmen proyek untuk topik jaringan komputer. Tentukan Benar atau Salah untuk setiap pernyataan berikut.', stmts: ['Rubrik harus memuat indikator yang jelas dan terukur.', 'Asesmen proyek sebaiknya hanya menilai hasil akhir.', 'Umpan balik formatif selama proyek membantu perbaikan.', 'Siswa sebaiknya diberi kesempatan revisi berdasarkan umpan balik.', 'Membandingkan siswa satu dengan yang lain adalah dasar penilaian yang tepat.'], ans: [true, false, true, true, false], exp: 'Pernyataan 2 dan 5 salah. Asesmen proyek menilai proses dan produk, serta memberi kesempatan revisi, bukan membandingkan antar siswa.' },
+      { id: 'Ku38', case: true, cat: 'kurikulum', type: 'single', q: 'Anda ingin menilai kemampuan siswa mengevaluasi dua solusi algoritma. Bentuk asesmen paling tepat adalah...', opts: ['Meminta siswa memilih jawaban acak', 'Memberi kasus dua solusi dan meminta siswa menganalisis kelebihan/kekurangan serta memilih yang terbaik disertai alasan', 'Meminta siswa menghafal definisi', 'Kuis tebak istilah'], ans: 1, exp: 'Mengevaluasi solusi disertai alasan adalah HOTS (C5), bukan hafalan.' },
+      { id: 'Ku39', case: true, cat: 'kurikulum', type: 'single', q: 'Seorang guru ingin memastikan asesmennya mengukur HOTS. Manakah ciri yang paling tepat?', opts: ['Soal menuntut siswa mengingat definisi', 'Soal menuntut siswa menganalisis, mengevaluasi, atau mencipta', 'Soal menuntut siswa menyalin', 'Soal menuntut siswa menghafal urutan'], ans: 1, exp: 'HOTS ditandai tuntutan analisis, evaluasi, dan mencipta (C4-C6).' },
+      { id: 'Ku40', case: true, cat: 'kurikulum', type: 'complex', q: 'Manakah yang termasuk prinsip asesmen autentik? (Pilih semua yang benar)', opts: ['Menilai kinerja nyata', 'Menggunakan rubrik yang jelas', 'Hanya menilai hafalan', 'Mencakup proses dan produk', 'Memberi umpan balik untuk perbaikan'], ans: [0, 1, 3, 4], exp: 'Asesmen autentik menilai kinerja nyata, memakai rubrik, mencakup proses+produk, dan memberi umpan balik. Bukan hanya hafalan.' }
+    ];
+
+    /* =========================================================
+       LOGIC — buildExam dengan prioritas soal kasus & bidang eksklusif
+       ========================================================= */
+    function buildExam(field) {
+      var profBank = field === 'Informatika' ? bankProfInf : bankProfIpa;
+      var banks = {
+        pedagogik: bankPedagogik,
+        profesional: profBank,
+        kepribadian: bankKepribadian,
+        sosial: bankSosial,
+        teori: bankTeori,
+        kurikulum: bankKurikulum
+      };
+      var keys = Object.keys(COMPOSITION);
+      var chosen = [];
+      var usedIds = {};
+
+      function takeFrom(arr, n, requireCase) {
+        var pool = arr.filter(function (q) {
+          if (usedIds[q.id]) return false;
+          if (requireCase && !q.case) return false;
+          return true;
+        });
+        var picked = pick(pool, n);
+        for (var i = 0; i < picked.length; i++) { usedIds[picked[i].id] = true; chosen.push(picked[i]); }
+        return picked.length;
+      }
+
+      // Tahap 1: penuhi kuota kasus per kategori
+      for (var k = 0; k < keys.length; k++) {
+        var cat = keys[k];
+        var quotaCase = CASE_QUOTA[cat] || 0;
+        takeFrom(banks[cat], quotaCase, true);
+      }
+
+      // Tahap 2: lengkapi sisa kuota kategori dengan soal apa pun (case/non-case)
+      for (var k2 = 0; k2 < keys.length; k2++) {
+        var cat2 = keys[k2];
+        var already = chosen.filter(function (q) { return q.cat === cat2; }).length;
+        var need = COMPOSITION[cat2] - already;
+        if (need > 0) takeFrom(banks[cat2], need, false);
+      }
+
+      // Tahap 3: fallback jika masih kurang dari TOTAL_Q
+      if (chosen.length < TOTAL_Q) {
+        var allPool = [];
+        for (var k3 = 0; k3 < keys.length; k3++) {
+          allPool = allPool.concat(banks[keys[k3]].filter(function (q) { return !usedIds[q.id]; }));
+        }
+        var extra = pick(allPool, TOTAL_Q - chosen.length);
+        chosen = chosen.concat(extra);
+      }
+
+      return shuffle(chosen).slice(0, TOTAL_Q);
+    }
+
+    function isAnswered(q, ans) {
+      if (ans === undefined || ans === null) return false;
+      if (q.type === 'single') return typeof ans === 'number';
+      if (q.type === 'complex') return Array.isArray(ans) && ans.length > 0;
+      if (q.type === 'bs') return ans && typeof ans === 'object' && Object.keys(ans).length === q.stmts.length;
+      return false;
+    }
+    function isCorrect(q, ans) {
+      if (!isAnswered(q, ans)) return false;
+      if (q.type === 'single') return ans === q.ans;
+      if (q.type === 'complex') {
+        var a = ans.slice().sort(function (x, y) { return x - y; });
+        var b = q.ans.slice().sort(function (x, y) { return x - y; });
+        if (a.length !== b.length) return false;
+        for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+        return true;
+      }
+      if (q.type === 'bs') {
+        for (var j = 0; j < q.stmts.length; j++) { if (!!ans[j] !== !!q.ans[j]) return false; }
+        return true;
+      }
+      return false;
+    }
+    function computeResult() {
+      var byCat = {};
+      var keys = Object.keys(COMPOSITION);
+      for (var k = 0; k < keys.length; k++) byCat[keys[k]] = { correct: 0, total: 0 };
+      var correct = 0, wrong = 0, empty = 0;
+      for (var i = 0; i < state.questions.length; i++) {
+        var q = state.questions[i];
+        byCat[q.cat].total++;
+        var ans = state.answers[q.id];
+        if (!isAnswered(q, ans)) { empty++; }
+        else if (isCorrect(q, ans)) { correct++; byCat[q.cat].correct++; }
+        else { wrong++; }
+      }
+      var score = Math.round((correct / TOTAL_Q) * 100);
+      return { correct: correct, wrong: wrong, empty: empty, score: score, byCat: byCat };
+    }
+    function verdictOf(score) {
+      if (score >= 90) return { label: 'Sangat Baik', cls: 'great', icon: '🏆', desc: 'Penguasaan materi sangat baik. Pertahankan dan asah lebih lanjut.' };
+      if (score >= 80) return { label: 'Baik', cls: 'good', icon: '👍', desc: 'Penguasaan materi baik. Perkuat area yang masih lemah.' };
+      if (score >= 70) return { label: 'Cukup', cls: 'mid', icon: '📘', desc: 'Penguasaan materi cukup. Perlu penguatan pada beberapa kategori.' };
+      if (score >= 60) return { label: 'Perlu Penguatan', cls: 'mid', icon: '⚠️', desc: 'Perlu penguatan pada banyak kategori. Disarankan belajar lebih terarah.' };
+      return { label: 'Perlu Belajar Lebih Intensif', cls: 'low', icon: '📚', desc: 'Perlu belajar lebih intensif dan latihan soal secara bertahap.' };
+    }
+    function recommendation(byCat) {
+      var names = Object.keys(byCat).filter(function (c) { return byCat[c].total > 0; });
+      names.sort(function (a, b) { return (byCat[a].correct / byCat[a].total) - (byCat[b].correct / byCat[b].total); });
+      var lowest = names[0];
+      var pct = byCat[lowest].correct / byCat[lowest].total;
+      if (pct >= 0.8) return 'Penguasaan semua kategori sudah relatif baik. Pertahankan konsistensi belajar dan perdalam soal-soal analisis.';
+      var map = {
+        pedagogik: 'pedagogik (karakteristik murid, diferensiasi, asesmen, dan pengelolaan kelas)',
+        profesional: 'profesional/PCK bidang studi yang dipilih (analisis konsep dan miskonsepsi)',
+        kepribadian: 'kompetensi kepribadian (integritas, etika, dan pengambilan keputusan)',
+        sosial: 'kompetensi sosial (komunikasi, kolaborasi, dan keberagaman)',
+        teori: 'teori belajar dan tokoh (penerapan teori pada situasi pembelajaran)',
+        kurikulum: 'kurikulum, asesmen, pembelajaran mendalam, dan diferensiasi'
+      };
+      return 'Berdasarkan hasil, area yang masih paling perlu diperkuat adalah ' + map[lowest] + '. Disarankan memperbanyak latihan kasus dan mempelajari kembali konsep dasarnya.';
+    }
+
+    /* PERSISTENCE */
+    function saveState() { try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { } }
+    function loadState() {
+      try {
+        var raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return false;
+        var s = JSON.parse(raw);
+        if (!s || typeof s !== 'object') return false;
+        for (var k in s) { if (s.hasOwnProperty(k)) state[k] = s[k]; }
+        return true;
+      } catch (e) { return false; }
+    }
+    function clearState() {
+      try { localStorage.removeItem(STORAGE_KEY); } catch (e) { }
+      state = {
+        screen: 'start', name: '', field: '', questions: [], answers: {}, flags: {},
+        current: 0, startedAt: null, endAt: null, finishedAt: null,
+        remainingSec: EXAM_DURATION_SEC, timerWarned: { 30: false, 10: false, 5: false }, reviewFilter: 'all'
+      };
+    }
+
+    /* ADMIN */
+    function loadAdminData() {
+      try {
+        var raw = localStorage.getItem(ADMIN_KEY);
+        if (!raw) return [];
+        var d = JSON.parse(raw);
+        return Array.isArray(d) ? d : [];
+      } catch (e) { return []; }
+    }
+    function saveAdminData(list) { try { localStorage.setItem(ADMIN_KEY, JSON.stringify(list)); } catch (e) { } }
+    function addAdminRecord(rec) { var list = loadAdminData(); list.push(rec); saveAdminData(list); }
+    function deleteAdminRecord(id) { var list = loadAdminData().filter(function (r) { return r.id !== id; }); saveAdminData(list); }
+    function uid() { return 'r' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6); }
+
+    /* =========================================================
+       RENDER (sama seperti sebelumnya)
+       ========================================================= */
+    function renderHeader() {
+      var hr = $('#headerRight');
+      if (!hr) return;
+      if (state.screen === 'exam') {
+        var sisa = state.remainingSec;
+        var cls = 'timer-pill';
+        if (sisa <= 300) cls += ' danger';
+        else if (sisa <= 1800) cls += ' warn';
+        hr.innerHTML = '<div class="pill"><span class="dot"></span>' + esc(state.name || 'Peserta') + ' &bull; ' + esc(state.field || '-') + '</div>' +
+          '<div class="pill ' + cls + '" id="timerPill">⏱ ' + fmtTime(sisa) + '</div>' +
+          '<button class="btn btn-ghost btn-sm" id="btnFinishTop">Selesai</button>';
+        var b = $('#btnFinishTop'); if (b) b.onclick = confirmFinish;
+      } else if (state.screen === 'result' || state.screen === 'review') {
+        hr.innerHTML = '<div class="pill"><span class="dot"></span>' + esc(state.name || 'Peserta') + ' &bull; ' + esc(state.field || '-') + '</div>' +
+          '<button class="btn btn-ghost btn-sm" id="btnHomeTop">Halaman Awal</button>';
+        var b2 = $('#btnHomeTop'); if (b2) b2.onclick = goHome;
+      } else if (state.screen === 'admin') {
+        hr.innerHTML = '<div class="pill"><span class="dot"></span>Panel Admin</div>' +
+          '<button class="btn btn-ghost btn-sm" id="btnHomeTop">Halaman Awal</button>';
+        var b3 = $('#btnHomeTop'); if (b3) b3.onclick = goHome;
+      } else {
+        hr.innerHTML = '<div class="pill"><span class="dot"></span>Simulasi Ujian Tertulis</div>';
+      }
+    }
+
+    function renderStart() {
+      var app = $('#app');
+      app.innerHTML = '' +
+        '<div class="hero">' +
+        '<span class="badge">Simulasi Ujian Tertulis</span>' +
+        '<h2>TRYOUT UKPPPG CALON GURU 2026</h2>' +
+        '<p class="sub">Simulasi Ujian Kompetensi &ndash; Bidang Informatika &amp; IPA</p>' +
+        '<div class="meta-row">' +
+        '<div class="meta-chip"><b>80</b> Soal</div>' +
+        '<div class="meta-chip"><b>120</b> Menit</div>' +
+        '<div class="meta-chip">Pilihan Ganda</div>' +
+        '<div class="meta-chip">PG Kompleks</div>' +
+        '<div class="meta-chip">Benar/Salah</div>' +
+        '<div class="meta-chip">Studi Kasus / SJT</div>' +
+        '<div class="meta-chip">HOTS</div>' +
+        '<div class="meta-chip">Hasil &amp; Analisis</div>' +
+        '</div>' +
+        '<div class="note"><span class="ic">ℹ️</span><span>Catatan: Tryout ini merupakan simulasi mandiri untuk latihan dan <b>bukan</b> merupakan soal resmi UKPPPG. Soal dibuat dengan gaya ujian kompetensi guru untuk latihan analisis dan pengambilan keputusan, dengan penekanan pada soal berbasis kasus dan HOTS (C4-C6).</span></div>' +
+        '</div>' +
+        '<div class="card">' +
+        '<div class="section-title">Form Peserta</div>' +
+        '<div class="section-sub">Isi nama dan pilih bidang studi untuk memulai tryout.</div>' +
+        '<div class="form-grid">' +
+        '<div class="field"><label for="inpName">Nama Peserta</label>' +
+        '<input id="inpName" type="text" placeholder="Masukkan nama lengkap" value="' + esc(state.name || '') + '" maxlength="60" autocomplete="off">' +
+        '<div class="hint">Nama akan tampil di halaman hasil dan panel admin.</div>' +
+        '</div>' +
+        '<div class="field"><label for="selField">Pilih Bidang Studi</label>' +
+        '<select id="selField">' +
+        '<option value="">&mdash; Pilih Bidang &mdash;</option>' +
+        '<option value="Informatika"' + (state.field === 'Informatika' ? ' selected' : '') + '>Informatika</option>' +
+        '<option value="IPA"' + (state.field === 'IPA' ? ' selected' : '') + '>IPA</option>' +
+        '</select>' +
+        '<div class="hint">Soal profesional/PCK akan menyesuaikan bidang studi (eksklusif).</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="err-msg" id="startErr"></div>' +
+        '<div class="start-actions">' +
+        '<button class="btn btn-primary" id="btnStart">MULAI TRYOUT</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+      $('#btnStart').onclick = startExam;
+      // $('#btnAdminStart').onclick = function () { goAdmin(); };
+    }
+
+    function startExam() {
+      var name = $('#inpName').value.trim();
+      var field = $('#selField').value;
+      var err = $('#startErr');
+      err.textContent = '';
+      if (!name) { err.textContent = 'Nama peserta wajib diisi.'; return; }
+      if (!field) { err.textContent = 'Bidang studi wajib dipilih.'; return; }
+      if (name.length < 2) { err.textContent = 'Nama minimal 2 karakter.'; return; }
+      if (state.questions && state.questions.length > 0 && !state.finishedAt) {
+        if (!confirm('Terdapat sesi tryout yang belum selesai. Memulai tryout baru akan menghapus sesi lama. Lanjutkan?')) return;
+      }
+      clearInterval(timerInterval);
+      state.name = name;
+      state.field = field;
+      state.questions = buildExam(field);
+      state.answers = {};
+      state.flags = {};
+      state.current = 0;
+      state.startedAt = Date.now();
+      state.endAt = state.startedAt + EXAM_DURATION_SEC * 1000;
+      state.finishedAt = null;
+      state.remainingSec = EXAM_DURATION_SEC;
+      state.timerWarned = { 30: false, 10: false, 5: false };
+      state.screen = 'exam';
+      saveState();
+      renderAll();
+      startTimer();
+    }
+
+    function startTimer() { clearInterval(timerInterval); timerInterval = setInterval(tick, 1000); tick(); }
+    function tick() {
+      if (state.screen !== 'exam') { clearInterval(timerInterval); return; }
+      if (!state.endAt) return;
+      var sisa = Math.max(0, Math.floor((state.endAt - Date.now()) / 1000));
+      state.remainingSec = sisa;
+      var el = $('#timerPill');
+      if (el) {
+        el.textContent = '⏱ ' + fmtTime(sisa);
+        el.className = 'pill timer-pill' + (sisa <= 300 ? ' danger' : sisa <= 1800 ? ' warn' : '');
+      }
+      if (sisa <= 1800 && sisa > 1790 && !state.timerWarned[30]) { state.timerWarned[30] = true; showToast('⏳ Waktu tersisa 30 menit.'); }
+      if (sisa <= 600 && sisa > 590 && !state.timerWarned[10]) { state.timerWarned[10] = true; showToast('⏳ Waktu tersisa 10 menit.'); }
+      if (sisa <= 300 && sisa > 290 && !state.timerWarned[5]) { state.timerWarned[5] = true; showToast('⚠️ Waktu tersisa 5 menit.'); }
+      saveState();
+      if (sisa <= 0) { clearInterval(timerInterval); submitExam(true); }
+    }
+
+    function renderExam() {
+      var app = $('#app');
+      var q = state.questions[state.current];
+      var idx = state.current;
+      var total = state.questions.length;
+      var answeredCount = 0;
+      for (var i = 0; i < state.questions.length; i++) { if (isAnswered(state.questions[i], state.answers[state.questions[i].id])) answeredCount++; }
+      var pct = Math.round((answeredCount / total) * 100);
+      var html = '' +
+        '<div class="exam-progress"><div class="progress-label"><span>Progres pengerjaan</span><span>' + answeredCount + '/' + total + ' soal dijawab (' + pct + '%)</span></div><div class="bar"><i style="width:' + pct + '%"></i></div></div>' +
+        '<div class="exam-layout" style="margin-top:16px">' +
+        '<div class="q-card">' +
+        '<div class="q-top"><div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">' +
+        '<span class="q-badge">SOAL ' + (idx + 1) + ' / ' + total + '</span>' +
+        '<span class="q-cat" style="color:' + catColor(q.cat) + '">' + catLabel(q.cat) + '</span>' +
+        '</div><span style="font-size:11.5px;color:var(--muted);font-weight:600">' + typeLabel(q) + '</span></div>' +
+        '<div class="q-body"><div class="q-text">' + esc(q.q) + '</div>' +
+        (q.type === 'complex' ? '<div class="instruction">Pilih semua jawaban yang benar (bisa lebih dari satu).</div>' : '') +
+        (q.type === 'bs' ? '<div class="instruction">Tentukan Benar atau Salah untuk setiap pernyataan.</div>' : '');
+      if (q.type === 'single') {
+        html += '<div class="options">';
+        for (var o = 0; o < q.opts.length; o++) {
+          var sel = state.answers[q.id] === o ? ' selected' : '';
+          html += '<div class="opt' + sel + '" data-opt="' + o + '"><div class="marker">' + String.fromCharCode(65 + o) + '</div><div class="opt-txt">' + esc(q.opts[o]) + '</div></div>';
+        }
+        html += '</div>';
+      } else if (q.type === 'complex') {
+        var cur = Array.isArray(state.answers[q.id]) ? state.answers[q.id] : [];
+        html += '<div class="options">';
+        for (var o2 = 0; o2 < q.opts.length; o2++) {
+          var sel2 = cur.indexOf(o2) >= 0 ? ' selected' : '';
+          html += '<div class="opt' + sel2 + '" data-copt="' + o2 + '"><div class="marker sq">' + String.fromCharCode(65 + o2) + '</div><div class="opt-txt">' + esc(q.opts[o2]) + '</div></div>';
+        }
+        html += '</div>';
+      } else if (q.type === 'bs') {
+        var curb = state.answers[q.id] || {};
+        html += '<div class="options">';
+        for (var s = 0; s < q.stmts.length; s++) {
+          var v = curb[s];
+          html += '<div class="bs-row"><div class="stmt">' + (s + 1) + '. ' + esc(q.stmts[s]) + '</div><div class="bs-btns">' +
+            '<button class="bs-btn' + (v === true ? ' on-true' : '') + '" data-bs="' + s + '" data-val="true">Benar</button>' +
+            '<button class="bs-btn' + (v === false ? ' on-false' : '') + '" data-bs="' + s + '" data-val="false">Salah</button>' +
+            '</div></div>';
+        }
+        html += '</div>';
+      }
+      html += '</div>' +
+        '<div class="q-footer">' +
+        '<div class="left">' +
+        '<button class="flag-btn' + (state.flags[q.id] ? ' active' : '') + '" id="btnFlag">🚩 Ragu-ragu</button>' +
+        '</div>' +
+        '<div class="right">' +
+        '<button class="btn btn-outline" id="btnPrev"' + (idx === 0 ? ' disabled' : '') + '>Sebelumnya</button>' +
+        '<button class="btn btn-primary" id="btnNext">' + (idx === total - 1 ? 'Selesai' : 'Berikutnya') + '</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="side">' +
+        '<h3>Navigasi Soal</h3>' +
+        '<div class="nav-grid" id="navGrid">';
+      for (var n = 0; n < total; n++) {
+        var qq = state.questions[n];
+        var cls = 'nav-num';
+        if (isAnswered(qq, state.answers[qq.id])) cls += ' answered';
+        if (state.flags[qq.id]) cls += ' flagged';
+        if (n === idx) cls += ' current';
+        html += '<div class="' + cls + '" data-nav="' + n + '">' + (n + 1) + '</div>';
+      }
+      html += '</div>' +
+        '<div class="legend">' +
+        '<div class="li"><span class="sw answered"></span>Sudah dijawab</div>' +
+        '<div class="li"><span class="sw flagged"></span>Ragu-ragu</div>' +
+        '<div class="li"><span class="sw current"></span>Sedang dikerjakan</div>' +
+        '</div>' +
+        '<div class="side-actions">' +
+        '<button class="btn btn-green" id="btnFinishSide">Selesaikan Tryout</button>' +
+        '<button class="btn btn-outline" id="btnHomeSide">Keluar ke Halaman Awal</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+      app.innerHTML = html;
+
+      $$('.opt[data-opt]').forEach(function (el) {
+        el.onclick = function () {
+          var o = parseInt(el.getAttribute('data-opt'));
+          state.answers[q.id] = o;
+          saveState();
+          renderExam();
+        };
+      });
+      $$('.opt[data-copt]').forEach(function (el) {
+        el.onclick = function () {
+          var o = parseInt(el.getAttribute('data-copt'));
+          var cur = Array.isArray(state.answers[q.id]) ? state.answers[q.id].slice() : [];
+          var pos = cur.indexOf(o);
+          if (pos >= 0) cur.splice(pos, 1); else cur.push(o);
+          state.answers[q.id] = cur;
+          saveState();
+          renderExam();
+        };
+      });
+      $$('.bs-btn[data-bs]').forEach(function (el) {
+        el.onclick = function () {
+          var s = parseInt(el.getAttribute('data-bs'));
+          var val = el.getAttribute('data-val') === 'true';
+          var curb = state.answers[q.id] || {};
+          curb[s] = val;
+          state.answers[q.id] = curb;
+          saveState();
+          renderExam();
+        };
+      });
+      $('#btnFlag').onclick = function () {
+        state.flags[q.id] = !state.flags[q.id];
+        saveState(); renderExam();
+      };
+      $('#btnPrev').onclick = function () { if (state.current > 0) { state.current--; saveState(); renderExam(); } };
+      $('#btnNext').onclick = function () {
+        if (state.current < total - 1) { state.current++; saveState(); renderExam(); }
+        else { confirmFinish(); }
+      };
+      $$('.nav-num[data-nav]').forEach(function (el) {
+        el.onclick = function () {
+          state.current = parseInt(el.getAttribute('data-nav'));
+          saveState(); renderExam();
+        };
+      });
+      $('#btnFinishSide').onclick = confirmFinish;
+      $('#btnHomeSide').onclick = function () {
+        if (confirm('Keluar ke halaman awal? Progres tryout tetap tersimpan.')) { goHome(); }
+      };
+    }
+
+    function confirmFinish() {
+      var total = state.questions.length;
+      var answered = 0;
+      for (var i = 0; i < total; i++) { if (isAnswered(state.questions[i], state.answers[state.questions[i].id])) answered++; }
+      var msg = 'Anda telah menjawab ' + answered + ' dari ' + total + ' soal.';
+      if (answered < total) msg += '\nMasih ada ' + (total - answered) + ' soal belum dijawab.';
+      msg += '\n\nSelesaikan tryout sekarang?';
+      if (confirm(msg)) { submitExam(false); }
+    }
+
+    function submitExam(auto) {
+      clearInterval(timerInterval);
+      state.finishedAt = Date.now();
+      state.screen = 'result';
+      saveState();
+      var r = computeResult();
+      var rec = {
+        id: uid(), name: state.name, field: state.field, score: r.score,
+        correct: r.correct, wrong: r.wrong, empty: r.empty, byCat: r.byCat,
+        startedAt: state.startedAt, finishedAt: state.finishedAt,
+        durationMs: state.finishedAt - state.startedAt, auto: !!auto,
+        questions: state.questions, answers: state.answers
+      };
+      addAdminRecord(rec);
+      renderAll();
+      if (auto) showToast('⏰ Waktu habis. Tryout otomatis diselesaikan.');
+    }
+
+    function renderResult() {
+      var app = $('#app');
+      var r = computeResult();
+      var v = verdictOf(r.score);
+      var dur = state.finishedAt && state.startedAt ? fmtDuration(state.finishedAt - state.startedAt) : '-';
+      var html = '' +
+        '<div class="result-hero">' +
+        '<div><h2>Hasil Tryout</h2>' +
+        '<div class="identity"><span>Nama: <b>' + esc(state.name) + '</b></span><span>Bidang: <b>' + esc(state.field) + '</b></span><span>Durasi: <b>' + dur + '</b></span></div>' +
+        '</div>' +
+        '<div class="score-circle"><div class="inner"><div class="val">' + r.score + '</div><div class="lbl">SKOR</div></div></div>' +
+        '</div>' +
+        '<div class="stat-grid">' +
+        '<div class="stat green"><div class="k">Benar</div><div class="v">' + r.correct + '</div></div>' +
+        '<div class="stat red"><div class="k">Salah</div><div class="v">' + r.wrong + '</div></div>' +
+        '<div class="stat gray"><div class="k">Kosong</div><div class="v">' + r.empty + '</div></div>' +
+        '<div class="stat"><div class="k">Total Soal</div><div class="v">' + state.questions.length + '</div></div>' +
+        '</div>' +
+        '<div class="card">' +
+        '<div class="section-title">Analisis per Kategori</div>' +
+        '<div class="section-sub">Persentase benar pada setiap kompetensi.</div>' +
+        '<div class="cat-grid">';
+      var keys = Object.keys(r.byCat);
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i], c = r.byCat[k];
+        if (c.total === 0) continue;
+        var p = Math.round((c.correct / c.total) * 100);
+        var low = p < 60 ? ' low' : '';
+        html += '<div class="cat-item' + low + '">' +
+          '<div class="row"><span class="name">' + catLabel(k) + '</span><span class="score">' + c.correct + '/' + c.total + ' <small>(' + p + '%)</small></span></div>' +
+          '<div class="bar"><i style="width:' + p + '%"></i></div>' +
+          '</div>';
+      }
+      html += '</div>' +
+        '<div class="verdict ' + v.cls + '"><div class="big">' + v.icon + '</div><div class="txt"><h4>' + v.label + '</h4><p>' + v.desc + '</p></div></div>' +
+        '<div class="recommend"><b>Rekomendasi:</b> ' + recommendation(r.byCat) + '</div>' +
+        '<div class="result-actions">' +
+        '<button class="btn btn-primary" id="btnReview">Lihat Pembahasan</button>' +
+        '<button class="btn btn-outline" id="btnHome">Halaman Awal</button>' +
+        '</div>' +
+        '</div>';
+      app.innerHTML = html;
+      $('#btnReview').onclick = function () { state.screen = 'review'; state.reviewFilter = 'all'; saveState(); renderAll(); };
+      $('#btnHome').onclick = goHome;
+    }
+
+    function renderReview() {
+      var app = $('#app');
+      var filter = state.reviewFilter || 'all';
+      var html = '<div class="card">' +
+        '<div class="review-head"><div><div class="section-title">Pembahasan Soal</div><div class="section-sub">Tinjau jawaban Anda dan pelajari pembahasannya.</div></div>' +
+        '<button class="btn btn-outline" id="btnBackResult">Kembali ke Hasil</button></div>' +
+        '<div class="review-tabs">' +
+        '<button class="rtab' + (filter === 'all' ? ' active' : '') + '" data-rf="all">Semua</button>' +
+        '<button class="rtab' + (filter === 'correct' ? ' active' : '') + '" data-rf="correct">Benar</button>' +
+        '<button class="rtab' + (filter === 'wrong' ? ' active' : '') + '" data-rf="wrong">Salah</button>' +
+        '<button class="rtab' + (filter === 'empty' ? ' active' : '') + '" data-rf="empty">Kosong</button>' +
+        '</div><div id="reviewList"></div></div>';
+      app.innerHTML = html;
+      renderReviewList();
+      $$('.rtab[data-rf]').forEach(function (el) {
+        el.onclick = function () { state.reviewFilter = el.getAttribute('data-rf'); saveState(); renderReview(); };
+      });
+      $('#btnBackResult').onclick = function () { state.screen = 'result'; saveState(); renderAll(); };
+    }
+    function renderReviewList() {
+      var list = $('#reviewList');
+      if (!list) return;
+      var filter = state.reviewFilter || 'all';
+      var html = '';
+      for (var i = 0; i < state.questions.length; i++) {
+        var q = state.questions[i];
+        var ans = state.answers[q.id];
+        var answered = isAnswered(q, ans);
+        var correct = isCorrect(q, ans);
+        var cls = !answered ? 'empty' : correct ? 'correct' : 'wrong';
+        if (filter === 'correct' && !(answered && correct)) continue;
+        if (filter === 'wrong' && !(answered && !correct)) continue;
+        if (filter === 'empty' && answered) continue;
+        var tag = !answered ? '<span class="rtag none">Kosong</span>' : correct ? '<span class="rtag ok">Benar</span>' : '<span class="rtag no">Salah</span>';
+        html += '<div class="review-item ' + cls + '"><div class="rhead"><span class="rnum">Soal ' + (i + 1) + ' &bull; ' + catLabel(q.cat) + '</span>' + tag + '</div>' +
+          '<div class="rq">' + esc(q.q) + '</div>';
+        html += '<div class="rans">';
+        html += '<div class="box you' + (answered && !correct ? ' wrong' : '') + '"><span class="lbl">Jawaban Anda</span>' + renderAnswerText(q, ans) + '</div>';
+        html += '<div class="box key"><span class="lbl">Kunci</span>' + renderKeyText(q) + '</div>';
+        html += '</div>';
+        html += '<div class="expl"><b>Pembahasan:</b> ' + esc(q.exp || '-') + '</div>';
+        html += '</div>';
+      }
+      if (!html) html = '<div class="no-data">Tidak ada soal pada filter ini.</div>';
+      list.innerHTML = html;
+    }
+    function renderAnswerText(q, ans) {
+      if (!isAnswered(q, ans)) return '<i>Belum dijawab</i>';
+      if (q.type === 'single') return esc(q.opts[ans]);
+      if (q.type === 'complex') return ans.slice().sort(function (a, b) { return a - b; }).map(function (i) { return esc(q.opts[i]); }).join('; ');
+      if (q.type === 'bs') {
+        var parts = [];
+        for (var i = 0; i < q.stmts.length; i++) { parts.push((i + 1) + '. ' + (ans[i] === true ? 'Benar' : ans[i] === false ? 'Salah' : '-')); }
+        return parts.join('<br>');
+      }
+      return '-';
+    }
+    function renderKeyText(q) {
+      if (q.type === 'single') return esc(q.opts[q.ans]);
+      if (q.type === 'complex') return q.ans.slice().sort(function (a, b) { return a - b; }).map(function (i) { return esc(q.opts[i]); }).join('; ');
+      if (q.type === 'bs') {
+        var parts = [];
+        for (var i = 0; i < q.stmts.length; i++) { parts.push((i + 1) + '. ' + (q.ans[i] ? 'Benar' : 'Salah')); }
+        return parts.join('<br>');
+      }
+      return '-';
+    }
+
+    /* ADMIN RENDER */
+    function goAdmin() { state.screen = 'admin'; saveState(); renderAll(); }
+    function goHome() { clearInterval(timerInterval); state.screen = 'start'; saveState(); renderAll(); }
+
+    function renderAdmin() {
+      var app = $('#app');
+      var data = loadAdminData();
+      var filtered = data.filter(function (r) {
+        if (adminFilter !== 'all' && r.field !== adminFilter) return false;
+        if (adminSearch) {
+          var s = adminSearch.toLowerCase();
+          if ((r.name || '').toLowerCase().indexOf(s) < 0) return false;
+        }
+        return true;
+      }).slice().reverse();
+      var html = '<div class="admin-hero"><div><h2>Panel Admin</h2><p>Riwayat hasil tryout peserta (tersimpan lokal di browser).</p></div>' +
+        '<div style="display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-ghost btn-sm" id="btnExport">Ekspor JSON</button>' +
+        '<button class="btn btn-red btn-sm" id="btnClearAll">Hapus Semua</button></div></div>' +
+        '<div class="admin-toolbar">' +
+        '<input id="adminSearch" placeholder="Cari nama peserta..." value="' + esc(adminSearch) + '">' +
+        '<select id="adminFilter" style="padding:10px 14px;border-radius:10px;border:1.5px solid var(--gray2);font-size:13px;background:#fff">' +
+        '<option value="all"' + (adminFilter === 'all' ? ' selected' : '') + '>Semua Bidang</option>' +
+        '<option value="Informatika"' + (adminFilter === 'Informatika' ? ' selected' : '') + '>Informatika</option>' +
+        '<option value="IPA"' + (adminFilter === 'IPA' ? ' selected' : '') + '>IPA</option>' +
+        '</select>' +
+        '<button class="btn btn-outline btn-sm" id="btnRefresh">Muat Ulang</button>' +
+        '<span style="font-size:12px;color:var(--muted);font-weight:600">Total: ' + filtered.length + ' data</span>' +
+        '</div>';
+      if (filtered.length === 0) {
+        html += '<div class="admin-table-wrap"><div class="admin-empty"><span class="ic">📭</span>Belum ada data hasil tryout.<br>Data akan muncul setelah peserta menyelesaikan tryout.</div></div>';
+      } else {
+        html += '<div class="admin-table-wrap"><table class="admin"><thead><tr>' +
+          '<th>Nama</th><th>Bidang</th><th>Skor</th><th>Benar</th><th>Salah</th><th>Kosong</th><th>Durasi</th><th>Waktu</th><th>Aksi</th>' +
+          '</tr></thead><tbody>';
+        for (var i = 0; i < filtered.length; i++) {
+          var r = filtered[i];
+          var sc = r.score >= 80 ? 'ok' : r.score >= 60 ? 'mid' : 'bad';
+          var fld = r.field === 'Informatika' ? 'inf' : 'ipa';
+          var dur = fmtDuration(r.durationMs);
+          var when = r.finishedAt ? new Date(r.finishedAt).toLocaleString('id-ID') : '-';
+          html += '<tr>' +
+            '<td>' + esc(r.name) + '</td>' +
+            '<td><span class="tag-field ' + fld + '">' + esc(r.field) + '</span></td>' +
+            '<td><span class="mini-score ' + sc + '">' + r.score + '</span></td>' +
+            '<td>' + r.correct + '</td><td>' + r.wrong + '</td><td>' + r.empty + '</td>' +
+            '<td>' + dur + '</td><td style="white-space:nowrap">' + when + '</td>' +
+            '<td><div class="admin-actions">' +
+            '<button class="btn btn-outline btn-xs" data-detail="' + r.id + '">Detail</button>' +
+            '<button class="btn btn-red btn-xs" data-del="' + r.id + '">Hapus</button>' +
+            '</div></td>' +
+            '</tr>';
+        }
+        html += '</tbody></table></div>';
+      }
+      app.innerHTML = html;
+      $('#adminSearch').oninput = function () { adminSearch = this.value; renderAdmin(); };
+      $('#adminFilter').onchange = function () { adminFilter = this.value; renderAdmin(); };
+      $('#btnRefresh').onclick = renderAdmin;
+      $('#btnExport').onclick = function () {
+        var blob = new Blob([JSON.stringify(loadAdminData(), null, 2)], { type: 'application/json' });
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'tryout_ukpppg_data.json';
+        a.click();
+      };
+      $('#btnClearAll').onclick = function () {
+        if (confirm('Hapus SEMUA data hasil tryout? Tindakan ini tidak dapat dibatalkan.')) {
+          saveAdminData([]); renderAdmin(); showToast('Semua data dihapus.');
+        }
+      };
+      $$('button[data-del]').forEach(function (el) {
+        el.onclick = function () {
+          if (confirm('Hapus data ini?')) { deleteAdminRecord(el.getAttribute('data-del')); renderAdmin(); showToast('Data dihapus.'); }
+        };
+      });
+      $$('button[data-detail]').forEach(function (el) {
+        el.onclick = function () { showDetail(el.getAttribute('data-detail')); };
+      });
+    }
+
+    function showDetail(id) {
+      var rec = loadAdminData().filter(function (r) { return r.id === id; })[0];
+      if (!rec) return;
+      var r = { correct: rec.correct, wrong: rec.wrong, empty: rec.empty, score: rec.score, byCat: rec.byCat };
+      var html = '<div class="modal-back" id="modalBack"><div class="modal">' +
+        '<div class="modal-head"><h3>Detail Hasil &ndash; ' + esc(rec.name) + '</h3><button class="btn btn-outline btn-xs" id="modalClose">Tutup</button></div>' +
+        '<div class="modal-body">' +
+        '<div class="detail-grid">' +
+        '<div class="dbox"><div class="k">Bidang</div><div class="v">' + esc(rec.field) + '</div></div>' +
+        '<div class="dbox"><div class="k">Skor</div><div class="v">' + rec.score + '</div></div>' +
+        '<div class="dbox"><div class="k">Benar</div><div class="v">' + rec.correct + '</div></div>' +
+        '<div class="dbox"><div class="k">Salah</div><div class="v">' + rec.wrong + '</div></div>' +
+        '<div class="dbox"><div class="k">Kosong</div><div class="v">' + rec.empty + '</div></div>' +
+        '<div class="dbox"><div class="k">Durasi</div><div class="v">' + fmtDuration(rec.durationMs) + '</div></div>' +
+        '</div>' +
+        '<h4>Analisis Kategori</h4>';
+      var keys = Object.keys(r.byCat);
+      for (var i = 0; i < keys.length; i++) {
+        var k = keys[i], c = r.byCat[k];
+        if (!c || c.total === 0) continue;
+        var p = Math.round((c.correct / c.total) * 100);
+        html += '<div class="mini-review"><div class="mr-head"><span>' + catLabel(k) + '</span><span>' + c.correct + '/' + c.total + ' (' + p + '%)</span></div><div class="bar"><i style="width:' + p + '%"></i></div></div>';
+      }
+      html += '<h4>Ringkasan Pembahasan</h4>';
+      var qs = rec.questions || [];
+      for (var j = 0; j < qs.length; j++) {
+        var q = qs[j];
+        var ans = (rec.answers || {})[q.id];
+        var answered = isAnswered(q, ans);
+        var correct = isCorrect(q, ans);
+        var cls = !answered ? 'empty' : correct ? 'correct' : 'wrong';
+        var tag = !answered ? 'Kosong' : correct ? 'Benar' : 'Salah';
+        html += '<div class="mini-review ' + cls + '"><div class="mr-head"><span>Soal ' + (j + 1) + ' &bull; ' + catLabel(q.cat) + '</span><span>' + tag + '</span></div>' +
+          '<div style="color:var(--muted);font-size:11.5px">' + esc((q.q || '').slice(0, 120)) + (q.q && q.q.length > 120 ? '...' : '') + '</div>' +
+          '<div class="mr-ans">Jawaban Anda: ' + renderAnswerText(q, ans) + '</div>' +
+          '<div class="mr-key">Kunci: ' + renderKeyText(q) + '</div>' +
+          '<div class="mr-exp">' + esc(q.exp || '-') + '</div>' +
+          '</div>';
+      }
+      html += '</div>' +
+        '<div class="modal-foot"><button class="btn btn-outline" id="modalClose2">Tutup</button></div>' +
+        '</div></div>';
+      document.body.insertAdjacentHTML('beforeend', html);
+      function close() { var m = $('#modalBack'); if (m) m.remove(); }
+      $('#modalClose').onclick = close;
+      $('#modalClose2').onclick = close;
+      $('#modalBack').onclick = function (e) { if (e.target.id === 'modalBack') close(); };
+    }
+
+    /* MAIN RENDER */
+    function renderAll() {
+      renderHeader();
+      if (state.screen === 'start') renderStart();
+      else if (state.screen === 'exam') renderExam();
+      else if (state.screen === 'result') renderResult();
+      else if (state.screen === 'review') renderReview();
+      else if (state.screen === 'admin') renderAdmin();
+    }
+
+    /* Ikon admin tersembunyi */
+    (function () {
+      var el = document.getElementById('adminSecret');
+      if (el) { el.onclick = function () { goAdmin(); }; }
+    })();
+
+    /* INIT */
+    (function init() {
+      var loaded = loadState();
+      if (loaded && state.screen === 'exam' && state.endAt) {
+        if (state.endAt <= Date.now()) { submitExam(true); }
+        else { renderAll(); startTimer(); }
+      } else if (loaded && (state.screen === 'result' || state.screen === 'review')) {
+        renderAll();
+      } else {
+        state.screen = 'start';
+        renderAll();
+      }
+    })();
+  </script>
+</body>
+
+</html>
